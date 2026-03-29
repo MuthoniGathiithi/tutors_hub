@@ -1,456 +1,437 @@
 /* ═══════════════════════════════════════════════════
-   DOJO — Beautiful White UI
+   DOJO — Modern Clean UI
    ═══════════════════════════════════════════════════ */
 
-/* ── Hero ─────────────────────────────────────────── */
-.hero {
-  background: linear-gradient(135deg, #0f2b5b 0%, #1e3f80 55%, #0f2b5b 100%);
-  padding: 52px 32px 44px;
-  position: relative;
-  overflow: hidden;
+* {
+  box-sizing: border-box;
 }
-.hero::before {
-  content: '';
-  position: absolute; top: -80px; right: -80px;
-  width: 320px; height: 320px;
-  background: radial-gradient(circle, rgba(232,160,0,.22) 0%, transparent 68%);
-  border-radius: 50%; pointer-events: none;
-}
-.hero::after {
-  content: '';
-  position: absolute; bottom: -60px; left: 30%;
-  width: 240px; height: 240px;
-  background: radial-gradient(circle, rgba(255,255,255,.06) 0%, transparent 70%);
-  border-radius: 50%; pointer-events: none;
-}
-.heroInner { max-width: 560px; position: relative; z-index: 1; }
-
-.heroTag {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(232,160,0,.18);
-  color: #fbbf24;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  padding: 5px 14px;
-  border-radius: 50px;
-  margin-bottom: 18px;
-  border: 1px solid rgba(232,160,0,.32);
-}
-.heroTitle {
-  font-family: 'Lora', serif;
-  color: #fff;
-  font-size: clamp(28px, 4vw, 40px);
-  font-weight: 700;
-  letter-spacing: -.02em;
-  margin-bottom: 12px;
-  line-height: 1.1;
-}
-.heroSub {
-  color: rgba(255,255,255,.62);
-  font-size: 15px;
-  margin-bottom: 28px;
-  line-height: 1.7;
-}
-
-/* ── Container ───────────────────────────────────── */
-.container { max-width: 1040px; margin: 0 auto; padding: 36px 24px 64px; }
-
-/* ── Stats row ───────────────────────────────────── */
-.statsRow {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-bottom: 36px;
-}
-.statCard {
-  background: #fff;
-  border-radius: 16px;
-  border: 1px solid #e4ecf7;
-  box-shadow: 0 2px 14px rgba(15,43,91,.07);
-  padding: 26px 20px;
-  text-align: center;
-  transition: transform .22s, box-shadow .22s;
-  position: relative;
-  overflow: hidden;
-}
-.statCard::after {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #0f2b5b 0%, #e8a000 100%);
-  border-radius: 16px 16px 0 0;
-}
-.statCard:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(15,43,91,.13); }
-.statNum {
-  font-family: 'Lora', serif;
-  font-size: 40px;
-  color: #0f2b5b;
-  line-height: 1;
-  font-weight: 700;
-}
-.statLbl { font-size: 11px; color: #7a8aaa; margin-top: 7px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
-
-/* ── Section head ────────────────────────────────── */
-.sectionHead {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-.sectionHead h2 {
-  color: #0f2b5b;
-  font-size: 19px;
-  font-family: 'Lora', serif;
-  font-weight: 700;
-}
-
-/* ── Empty card ──────────────────────────────────── */
-.emptyCard {
-  background: #fff;
-  border-radius: 16px;
-  border: 2px dashed #d0ddf0;
-  padding: 48px 24px;
-  text-align: center;
-  color: #7a8aaa;
-}
-.emptyCard p { margin-bottom: 20px; font-size: 14.5px; color: #5a6a8a; }
-
-/* ── Student list ────────────────────────────────── */
-.studentList { display: flex; flex-direction: column; gap: 12px; }
-
-.studentCard {
-  background: #fff;
-  border-radius: 16px;
-  border: 1px solid #e4ecf7;
-  border-left-width: 5px;
-  box-shadow: 0 2px 12px rgba(15,43,91,.06);
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 18px 20px;
-  cursor: pointer;
-  transition: transform .2s, box-shadow .22s;
-}
-.studentCard:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(15,43,91,.13); }
-
-.studentAvatar {
-  width: 52px; height: 52px;
-  border-radius: 14px;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Lora', serif;
-  font-size: 22px; font-weight: 800;
-  flex-shrink: 0;
-}
-.studentInfo { flex: 1; min-width: 0; }
-.studentName {
-  font-family: 'Lora', serif;
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 7px;
-}
-.studentMeta { display: flex; flex-wrap: wrap; gap: 5px; }
-.pill {
-  background: #f0f5ff;
-  border-radius: 50px;
-  padding: 3px 11px;
-  font-size: 11px;
-  font-weight: 600;
-  color: #3a4a6a;
-  border: 1px solid #e0eaff;
-}
-.studentActions { display: flex; gap: 7px; flex-shrink: 0; flex-wrap: wrap; }
 
 /* ── Form page ───────────────────────────────────── */
-.formPage { max-width: 780px; margin: 0 auto; padding: 36px 20px 64px; }
-
-.formPageHead { margin-bottom: 30px; }
-.formPageTag {
-  display: inline-block;
-  background: #e8f0ff;
-  color: #0f2b5b;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-  padding: 5px 13px;
-  border-radius: 50px;
-  margin-bottom: 12px;
-  border: 1px solid #c8daff;
+.dojo-form-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 24px 64px;
 }
-.formPageHead h1 {
-  font-family: 'Lora', serif;
-  color: #0f2b5b;
-  font-size: clamp(22px, 3.5vw, 32px);
-  margin-bottom: 8px;
+
+.dojo-form-page-head {
+  margin-bottom: 36px;
+}
+
+.dojo-form-page-tag {
+  display: inline-block;
+  background: #dbeafe;
+  color: #1e40af;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 50px;
+  margin-bottom: 14px;
+  border: 1px solid #bfdbfe;
+}
+
+.dojo-form-page-head h1 {
+  color: #111827;
+  font-size: clamp(24px, 4vw, 36px);
+  margin-bottom: 10px;
   font-weight: 700;
 }
-.formPageHead p { color: #5a6a8a; font-size: 14.5px; line-height: 1.65; }
 
-/* ── Lesson form head (coloured student strip) ───── */
-.lessonFormHead {
+.dojo-form-page-head p {
+  color: #6b7280;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ── Lesson form head ─────────────────────────────── */
+.dojo-lesson-form-head {
   display: flex;
   align-items: center;
   gap: 16px;
   background: #fff;
-  border-radius: 14px;
-  border: 1px solid #e4ecf7;
-  box-shadow: 0 2px 10px rgba(15,43,91,.06);
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   padding: 18px 22px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
-.lessonFormAvatar {
-  width: 52px; height: 52px;
-  border-radius: 14px;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Lora', serif;
-  font-size: 22px; font-weight: 800;
+
+.dojo-lesson-form-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 800;
   flex-shrink: 0;
 }
-.lessonFormTag { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 4px; }
-.lessonFormStudent { font-family: 'Lora', serif; font-size: 18px; font-weight: 700; }
+
+.dojo-lesson-form-tag {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 4px;
+}
+
+.dojo-lesson-form-student {
+  font-size: 18px;
+  font-weight: 700;
+}
 
 /* ── Form card ───────────────────────────────────── */
-.formCard {
+.dojo-form-card {
   background: #fff;
-  border-radius: 16px;
-  border: 1px solid #e4ecf7;
-  box-shadow: 0 2px 14px rgba(15,43,91,.06);
-  padding: 26px 24px;
-  margin-bottom: 18px;
-  position: relative;
-  overflow: hidden;
-}
-.formCard::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #0f2b5b 0%, #e8a000 100%);
-  border-radius: 16px 16px 0 0;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+  margin-bottom: 20px;
 }
 
-.formCardTitle {
-  font-size: 11.5px;
-  font-weight: 800;
+.dojo-form-card-title {
+  font-size: 12px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .13em;
-  color: #0f2b5b;
+  letter-spacing: 0.12em;
+  color: #111827;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
 }
-.formCardTitle::before {
+
+.dojo-form-card-title::before {
   content: '';
   display: block;
-  width: 4px; height: 18px;
-  background: #e8a000;
-  border-radius: 4px;
+  width: 3px;
+  height: 18px;
+  background: #3b82f6;
+  border-radius: 3px;
   flex-shrink: 0;
-}
-.formCardSub {
-  font-weight: 500;
-  font-size: 11px;
-  color: #9aaac8;
-  letter-spacing: .03em;
-  text-transform: none;
 }
 
 /* ── Field group ─────────────────────────────────── */
-.fieldGroup { display: flex; flex-direction: column; gap: 7px; }
-
-.fieldLabel {
-  font-size: 12px;
-  font-weight: 700;
-  color: #0f2340;         /* rich dark — not grey */
-  letter-spacing: .03em;
+.dojo-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
-.req { color: #e8a000; }
+
+.dojo-field-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.dojo-req {
+  color: #ef4444;
+}
 
 /* ── Inputs & textareas ──────────────────────────── */
-.fieldInput {
-  border: 1.5px solid #d4dded;
-  border-radius: 10px;
-  padding: 11px 14px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+.dojo-field-input,
+.dojo-field-textarea {
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 14px;
-  color: #0d1f3c;          /* rich dark text */
+  color: #111827;
   background: #fff;
   outline: none;
   width: 100%;
-  transition: border-color .2s, box-shadow .2s;
-  -webkit-appearance: none;
+  transition: all 0.2s;
 }
-.fieldInput:focus {
-  border-color: #0f2b5b;
-  box-shadow: 0 0 0 3.5px rgba(15,43,91,.11);
-}
-/* Dark rich placeholder — not grey */
-.fieldInput::placeholder { color: #4a5a7a; opacity: 1; font-weight: 500; }
-.fieldInput[type="date"]::-webkit-calendar-picker-indicator { cursor: pointer; }
 
-.fieldTextarea {
-  border: 1.5px solid #d4dded;
-  border-radius: 10px;
-  padding: 11px 14px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 14px;
-  color: #0d1f3c;
-  background: #fff;
-  outline: none;
-  width: 100%;
+.dojo-field-input:focus,
+.dojo-field-textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.dojo-field-input::placeholder,
+.dojo-field-textarea::placeholder {
+  color: #9ca3af;
+}
+
+.dojo-field-textarea {
   min-height: 96px;
   resize: vertical;
-  transition: border-color .2s, box-shadow .2s;
-  line-height: 1.6;
+  line-height: 1.5;
 }
-.fieldTextarea:focus {
-  border-color: #0f2b5b;
-  box-shadow: 0 0 0 3.5px rgba(15,43,91,.11);
-}
-.fieldTextarea::placeholder { color: #4a5a7a; opacity: 1; font-weight: 500; }
 
 /* ── Select ──────────────────────────────────────── */
-.selectWrap { position: relative; }
-.select {
-  border: 1.5px solid #d4dded;
-  border-radius: 10px;
-  padding: 11px 38px 11px 14px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+.dojo-select-wrap {
+  position: relative;
+}
+
+.dojo-select {
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  padding: 10px 36px 10px 12px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 14px;
-  color: #0d1f3c;
+  color: #111827;
   background: #fff;
   outline: none;
   width: 100%;
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8.5L1.5 3.5h9z' fill='%230f2b5b'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8.5L1.5 3.5h9z' fill='%23111827'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 13px center;
-  transition: border-color .2s, box-shadow .2s;
+  background-position: right 12px center;
+  transition: all 0.2s;
 }
-.select:focus { border-color: #0f2b5b; box-shadow: 0 0 0 3.5px rgba(15,43,91,.11); }
-.select option { color: #0d1f3c; }
+
+.dojo-select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
 
 /* ── Toggle row ──────────────────────────────────── */
-.toggleRow { display: flex; gap: 7px; flex-wrap: wrap; }
-.toggle {
-  padding: 9px 17px;
-  border-radius: 9px;
-  border: 1.5px solid #d4dded;
-  background: #fff;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 12.5px;
-  font-weight: 600;
-  color: #3a4a6a;
-  cursor: pointer;
-  transition: all .18s;
+.dojo-toggle-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 }
-.toggle:hover { border-color: #0f2b5b; color: #0f2b5b; background: #f0f5ff; }
-.toggleActive { background: #0f2b5b !important; color: #fff !important; border-color: #0f2b5b !important; box-shadow: 0 3px 10px rgba(15,43,91,.25); }
+
+.dojo-toggle {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1.5px solid #d1d5db;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  color: #4b5563;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dojo-toggle:hover {
+  border-color: #3b82f6;
+  color: #3b82f6;
+  background: #f0f9ff;
+}
+
+.dojo-toggle-active {
+  background: #3b82f6 !important;
+  color: #fff !important;
+  border-color: #3b82f6 !important;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+}
 
 /* ── Grid helpers ────────────────────────────────── */
-.formGrid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.formGrid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.dojo-form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.dojo-form-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .dojo-form-grid-2,
+  .dojo-form-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* ── Form actions ────────────────────────────────── */
-.formActions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 8px; }
+.dojo-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 32px;
+}
 
 /* ── Detail banner ───────────────────────────────── */
-.detailBanner {
+.dojo-detail-banner {
   color: #fff;
-  padding: 36px 28px 28px;
+  padding: 40px 28px 28px;
   position: relative;
   overflow: hidden;
 }
-.detailBanner::before {
+
+.dojo-detail-banner::before {
   content: '';
-  position: absolute; top: -60px; right: -60px;
-  width: 220px; height: 220px;
-  background: radial-gradient(circle, rgba(255,255,255,.1) 0%, transparent 70%);
-  border-radius: 50%; pointer-events: none;
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
 }
-.detailBannerLeft { display: flex; align-items: center; gap: 18px; margin-bottom: 20px; position: relative; z-index: 1; }
-.detailAvatar {
-  width: 64px; height: 64px;
-  border-radius: 18px;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Lora', serif;
-  font-size: 28px; font-weight: 800;
+
+.dojo-detail-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.dojo-detail-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 800;
   flex-shrink: 0;
 }
-.detailName { font-family: 'Lora', serif; font-size: 24px; font-weight: 700; margin-bottom: 5px; }
-.detailGrade { font-size: 13px; opacity: .65; margin-bottom: 4px; }
-.detailCount { font-size: 12px; opacity: .45; }
-.detailActions { display: flex; gap: 8px; flex-wrap: wrap; position: relative; z-index: 1; }
-.detailAccent { height: 4px; position: absolute; bottom: 0; left: 0; right: 0; }
+
+.dojo-detail-name {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.dojo-detail-grade {
+  font-size: 14px;
+  opacity: 0.75;
+  margin-bottom: 4px;
+}
+
+.dojo-detail-count {
+  font-size: 13px;
+  opacity: 0.6;
+}
+
+.dojo-detail-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.dojo-detail-accent {
+  height: 3px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 
 /* ── Detail body ─────────────────────────────────── */
-.detailBody { max-width: 920px; margin: 0 auto; padding: 28px 24px 16px; }
+.dojo-detail-body {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 28px 24px 16px;
+}
 
 /* ── Lesson item (teacher detail view) ───────────── */
-.lessonItem {
+.dojo-lesson-item {
   background: #fff;
-  border-radius: 14px;
-  border: 1px solid #e4ecf7;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
   border-left-width: 4px;
-  box-shadow: 0 2px 10px rgba(15,43,91,.06);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   padding: 20px 22px;
-  margin-bottom: 14px;
-  transition: box-shadow .2s;
+  margin-bottom: 16px;
+  transition: box-shadow 0.2s;
 }
-.lessonItem:hover { box-shadow: 0 7px 26px rgba(15,43,91,.11); }
 
-.liHeader {
+.dojo-lesson-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.dojo-li-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   gap: 12px;
 }
-.liDate { font-size: 12.5px; font-weight: 700; color: #7a8aaa; margin-bottom: 6px; }
-.liTime { font-size: 12px; color: #9aaac8; }
-.liSubjectRow { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
-.liSubjectBadge {
-  padding: 3px 11px;
-  border-radius: 50px;
-  color: #fff;
-  font-size: 10.5px;
-  font-weight: 800;
-  letter-spacing: .04em;
+
+.dojo-li-date {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 4px;
+}
+
+.dojo-li-tutor {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.dojo-li-actions {
+  display: flex;
+  gap: 6px;
   flex-shrink: 0;
 }
-.liTopic { font-family: 'Lora', serif; font-size: 15.5px; font-weight: 700; }
-.liSubtopic { font-size: 13px; color: #7a8aaa; }
-.liActions { display: flex; gap: 6px; flex-shrink: 0; }
+
+.dojo-li-subject-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.dojo-li-subject-badge {
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.dojo-li-topic {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.dojo-li-subtopic {
+  font-size: 13px;
+  color: #6b7280;
+}
 
 /* Field rows */
-.liField {
+.dojo-li-field {
   display: flex;
   gap: 12px;
-  padding: 8px 0;
-  border-top: 1px solid #f0f5ff;
+  padding: 10px 0;
+  border-top: 1px solid #f3f4f6;
   align-items: flex-start;
 }
-.liFieldLabel {
-  font-size: 10.5px;
-  font-weight: 800;
+
+.dojo-li-field-label {
+  font-size: 11px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .08em;
-  color: #8898bb;
+  letter-spacing: 0.08em;
+  color: #9ca3af;
   min-width: 110px;
   flex-shrink: 0;
   padding-top: 2px;
 }
-.liFieldVal { font-size: 13.5px; color: #0d1f3c; flex: 1; line-height: 1.55; }
-.liFieldExtra { color: #8898bb; font-size: 12px; }
+
+.dojo-li-field-val {
+  font-size: 14px;
+  color: #111827;
+  flex: 1;
+  line-height: 1.6;
+}
 
 /* Assignment */
-.liAssignment {
+.dojo-li-assignment {
   border-radius: 10px;
   padding: 14px 16px;
   margin-top: 12px;
@@ -458,130 +439,268 @@
   flex-direction: column;
   gap: 5px;
 }
-.liAssignmentLabel { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .11em; }
-.liAssignmentText  { font-size: 13.5px; color: #1a2d4e; line-height: 1.6; }
-.liAssignmentDue   { font-size: 12px; font-weight: 700; opacity: .8; }
+
+.dojo-li-assignment-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+}
+
+.dojo-li-assignment-text {
+  font-size: 14px;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+.dojo-li-assignment-due {
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0.85;
+}
 
 /* Exam */
-.liExam { border-radius: 10px; padding: 14px 16px; margin-top: 12px; }
-.liExamTitle { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 11px; }
-.liExamGrid { display: flex; flex-wrap: wrap; gap: 14px; }
+.dojo-li-exam {
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-top: 12px;
+}
 
-.examMini { min-width: 88px; }
-.examMiniLabel { font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: .09em; color: #8898bb; margin-bottom: 3px; }
-.examMiniVal { font-size: 13.5px; font-weight: 600; color: #1a2d4e; }
+.dojo-li-exam-title {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
 
-/* ── Danger zone ─────────────────────────────────── */
-.dangerZone { padding: 0 24px 36px; display: flex; justify-content: flex-end; }
+.dojo-li-exam-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* ── Empty card ──────────────────────────────────── */
+.dojo-empty-card {
+  background: #fff;
+  border-radius: 12px;
+  border: 2px dashed #e5e7eb;
+  padding: 48px 24px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.dojo-empty-card p {
+  margin-bottom: 20px;
+  font-size: 15px;
+  color: #4b5563;
+}
+
+/* ── Student list ────────────────────────────────── */
+.dojo-student-card {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  border-left-width: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dojo-student-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dojo-student-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.dojo-student-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.dojo-student-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.dojo-pill {
+  background: #f3f4f6;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #4b5563;
+  border: 1px solid #e5e7eb;
+}
 
 /* ═══════════════════════════════════════════════════
    PARENT VIEW
    ═══════════════════════════════════════════════════ */
-.parentPage { min-height: 100vh; background: #f3f6fb; }
 
-.parentHeader {
+.dojo-parent-page {
+  min-height: 100vh;
+  background: #f9fafb;
+}
+
+.dojo-parent-header {
   color: #fff;
   padding: 52px 20px 40px;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
-.parentHeader::before {
-  content: '';
-  position: absolute; top: -90px; right: -90px;
-  width: 300px; height: 300px;
-  background: radial-gradient(circle, rgba(255,255,255,.12) 0%, transparent 68%);
-  border-radius: 50%; pointer-events: none;
-}
-.parentHeader::after {
-  content: '';
-  position: absolute; bottom: -50px; left: 20%;
-  width: 200px; height: 200px;
-  background: radial-gradient(circle, rgba(255,255,255,.06) 0%, transparent 70%);
-  border-radius: 50%; pointer-events: none;
-}
-.parentHeaderInner { max-width: 520px; margin: 0 auto; position: relative; z-index: 1; }
 
-.parentBrand {
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: .24em;
+.dojo-parent-header::before {
+  content: '';
+  position: absolute;
+  top: -90px;
+  right: -90px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 68%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.dojo-parent-header::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  left: 20%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.dojo-parent-header-inner {
+  max-width: 520px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.dojo-parent-brand {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  opacity: .45;
+  opacity: 0.5;
   margin-bottom: 22px;
 }
-.parentAvatar {
-  width: 70px; height: 70px;
-  border-radius: 20px;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Lora', serif;
-  font-size: 30px; font-weight: 800;
+
+.dojo-parent-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 800;
   margin: 0 auto 16px;
-  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
-.parentName {
-  font-family: 'Lora', serif;
+
+.dojo-parent-name {
   font-size: clamp(24px, 5vw, 32px);
   font-weight: 700;
   margin-bottom: 12px;
-  letter-spacing: -.01em;
+  letter-spacing: -0.01em;
 }
-.parentGrade {
+
+.dojo-parent-grade {
   display: inline-block;
   border-radius: 6px;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: .12em;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   padding: 5px 14px;
   margin-bottom: 12px;
 }
-.parentCount { font-size: 13px; opacity: .45; margin-bottom: 22px; }
 
-.parentPrintBtn {
+.dojo-parent-count {
+  font-size: 13px;
+  opacity: 0.5;
+  margin-bottom: 22px;
+}
+
+.dojo-parent-print-btn {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
   border: none;
-  border-radius: 50px;
+  border-radius: 8px;
   padding: 12px 28px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 700;
   cursor: pointer;
-  letter-spacing: .02em;
-  transition: opacity .2s, transform .15s;
-  box-shadow: 0 4px 16px rgba(0,0,0,.2);
+  letter-spacing: 0.02em;
+  transition: opacity 0.2s, transform 0.15s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
-.parentPrintBtn:hover { opacity: .87; transform: translateY(-1px); }
-.parentPrintBtn:active { transform: translateY(0); }
 
-.parentAccent { height: 4px; position: absolute; bottom: 0; left: 0; right: 0; }
+.dojo-parent-print-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
 
-.parentBody { max-width: 640px; margin: 0 auto; padding: 28px 16px 20px; }
+.dojo-parent-accent {
+  height: 3px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 
-.emptyNote {
-  text-align: center; padding: 48px 24px;
+.dojo-parent-body {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 28px 16px 20px;
+}
+
+.dojo-empty-note {
+  text-align: center;
+  padding: 48px 24px;
   background: #fff;
-  border-radius: 16px;
-  border: 1px solid #e4ecf7;
-  color: #7a8aaa;
-  font-size: 14px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  color: #6b7280;
+  font-size: 15px;
 }
 
 /* ── Lesson card (parent) ────────────────────────── */
-.lessonCard {
+.dojo-lesson-card {
   background: #fff;
-  border-radius: 16px;
-  border: 1px solid #e4ecf7;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
   border-top-width: 3px;
-  box-shadow: 0 3px 14px rgba(15,43,91,.07);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   margin-bottom: 16px;
   overflow: hidden;
 }
 
 /* Date + tutor strip */
-.lcTopStrip {
+.dojo-lc-top-strip {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -589,68 +708,115 @@
   flex-wrap: wrap;
   gap: 10px;
 }
-.lcTopLeft { display: flex; align-items: center; gap: 12px; }
-.lcDateBox {
-  border-radius: 10px;
+
+.dojo-lc-top-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dojo-lc-date-box {
+  border-radius: 8px;
   padding: 8px 11px;
   text-align: center;
   flex-shrink: 0;
 }
-.lcDateDay { font-size: 20px; font-weight: 800; color: #fff; line-height: 1; }
-.lcDateMon { font-size: 9px; color: rgba(255,255,255,.7); text-transform: uppercase; letter-spacing: .07em; margin-top: 2px; }
-.lcDate { font-size: 13px; font-weight: 700; color: #1a2d4e; }
-.lcTime { font-size: 11.5px; color: #8898bb; margin-top: 2px; }
-.lcTutorChip {
-  border-radius: 50px;
-  padding: 5px 14px;
-  font-size: 11.5px;
+
+.dojo-lc-date-day {
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+}
+
+.dojo-lc-date-mon {
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-top: 2px;
+}
+
+.dojo-lc-date {
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: .02em;
+  color: #1f2937;
+}
+
+.dojo-lc-time {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+.dojo-lc-tutor-chip {
+  border-radius: 6px;
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
   flex-shrink: 0;
 }
 
 /* Subject + topic */
-.lcSubjectRow {
+.dojo-lc-subject-row {
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 14px 18px 10px;
   flex-wrap: wrap;
-  border-top: 1px solid #f0f5ff;
+  border-top: 1px solid #f3f4f6;
 }
-.lcSubjectBadge {
+
+.dojo-lc-subject-badge {
   padding: 4px 12px;
-  border-radius: 50px;
-  font-size: 10.5px;
-  font-weight: 800;
-  letter-spacing: .05em;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   flex-shrink: 0;
 }
-.lcTopic { font-family: 'Lora', serif; font-size: 16px; font-weight: 700; }
-.lcSubtopic { font-size: 13px; color: #8898bb; }
+
+.dojo-lc-topic {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.dojo-lc-subtopic {
+  font-size: 13px;
+  color: #6b7280;
+}
 
 /* Info rows */
-.lcField {
+.dojo-lc-field {
   display: flex;
   gap: 12px;
-  padding: 9px 18px;
-  border-top: 1px solid #f0f5ff;
+  padding: 10px 18px;
+  border-top: 1px solid #f3f4f6;
   align-items: flex-start;
 }
-.lcFieldLabel {
+
+.dojo-lc-field-label {
   font-size: 10px;
-  font-weight: 800;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .09em;
-  color: #8898bb;
+  letter-spacing: 0.09em;
+  color: #9ca3af;
   min-width: 110px;
   flex-shrink: 0;
   padding-top: 2px;
 }
-.lcFieldVal { font-size: 14px; color: #0d1f3c; flex: 1; line-height: 1.6; font-weight: 500; }
+
+.dojo-lc-field-val {
+  font-size: 14px;
+  color: #111827;
+  flex: 1;
+  line-height: 1.6;
+  font-weight: 500;
+}
 
 /* Assignment */
-.lcAssignment {
+.dojo-lc-assignment {
   margin: 12px 18px;
   border-radius: 10px;
   padding: 14px 16px;
@@ -660,82 +826,146 @@
   flex-direction: column;
   gap: 5px;
 }
-.lcAssignmentLabel { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 2px; }
-.lcAssignmentText  { font-size: 14px; color: #1a2d4e; line-height: 1.65; font-weight: 500; }
-.lcAssignmentDue   { font-size: 12px; font-weight: 700; opacity: .8; margin-top: 2px; }
+
+.dojo-lc-assignment-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 2px;
+}
+
+.dojo-lc-assignment-text {
+  font-size: 14px;
+  color: #1f2937;
+  line-height: 1.65;
+  font-weight: 500;
+}
+
+.dojo-lc-assignment-due {
+  font-size: 12px;
+  font-weight: 700;
+  opacity: 0.85;
+  margin-top: 2px;
+}
 
 /* Exam */
-.lcExam {
+.dojo-lc-exam {
   margin: 12px 18px 14px;
   border-radius: 10px;
   padding: 14px 16px;
   border-left-width: 4px;
   border-left-style: solid;
 }
-.lcExamTitle { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 12px; }
-.lcExamGrid  { display: flex; flex-wrap: wrap; gap: 14px; }
+
+.dojo-lc-exam-title {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+
+.dojo-lc-exam-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.dojo-exam-mini {
+  min-width: 88px;
+}
+
+.dojo-exam-mini-label {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: #9ca3af;
+  margin-bottom: 3px;
+}
+
+.dojo-exam-mini-val {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1f2937;
+}
 
 /* ── Bottom print row ─────────────────────────────── */
-.parentPrintRow { text-align: center; padding: 8px 16px 48px; }
-.printBtnBottom {
+.dojo-parent-print-row {
+  text-align: center;
+  padding: 8px 16px 48px;
+}
+
+.dojo-print-btn-bottom {
   border: none;
-  border-radius: 50px;
+  border-radius: 8px;
   padding: 14px 38px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
-  letter-spacing: .03em;
-  box-shadow: 0 4px 18px rgba(0,0,0,.18);
-  transition: opacity .2s, transform .15s;
+  letter-spacing: 0.03em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: opacity 0.2s, transform 0.15s;
 }
-.printBtnBottom:hover { opacity: .87; transform: translateY(-2px); }
-.printBtnBottom:active { transform: translateY(0); }
+
+.dojo-print-btn-bottom:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
 
 /* ── Not found ───────────────────────────────────── */
-.notFound {
+.dojo-not-found {
   min-height: 100vh;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center; padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  background: #f9fafb;
 }
-.nfCode { font-family: 'Lora', serif; font-size: 96px; font-weight: 700; color: #e4ecf7; line-height: 1; margin-bottom: 18px; }
-.notFound h2 { font-size: 22px; color: #0f2b5b; margin-bottom: 8px; }
-.notFound p  { color: #7a8aaa; font-size: 14px; }
 
-/* ── Print styles ────────────────────────────────── */
-@media print {
-  .parentHeader, .lcTopStrip, .lcDateBox { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .parentPrintBtn, .parentPrintRow { display: none; }
-  .parentPage { background: #fff; }
-  .lessonCard { box-shadow: none; border: 1px solid #ddd; page-break-inside: avoid; }
+.dojo-nf-code {
+  font-size: 120px;
+  font-weight: 800;
+  color: #e5e7eb;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.dojo-not-found h2 {
+  color: #111827;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.dojo-not-found p {
+  color: #6b7280;
+  font-size: 15px;
 }
 
 /* ── Responsive ──────────────────────────────────── */
-@media (max-width: 700px) {
-  .hero { padding: 36px 18px 30px; }
-  .statsRow { grid-template-columns: 1fr 1fr; }
-  .statsRow > *:last-child { grid-column: span 2; }
-  .studentCard { flex-wrap: wrap; }
-  .studentActions { width: 100%; justify-content: flex-start; margin-top: 10px; gap: 6px; }
-  .formGrid2 { grid-template-columns: 1fr; }
-  .formGrid3 { grid-template-columns: 1fr 1fr; }
-  .detailBannerLeft { flex-wrap: wrap; }
-  .liHeader { flex-direction: column; }
-  .liActions { align-self: flex-end; }
-  .lcTopStrip { padding: 12px 14px; }
-  .lcSubjectRow { padding: 12px 14px 8px; }
-  .lcField { padding: 8px 14px; }
-  .lcFieldLabel { min-width: 88px; }
+@media (max-width: 768px) {
+  .dojo-li-header,
+  .dojo-detail-banner-left {
+    flex-direction: column;
+  }
+
+  .dojo-li-actions {
+    width: 100%;
+  }
+
+  .dojo-detail-actions {
+    width: 100%;
+    margin-top: 12px;
+  }
 }
-@media (max-width: 480px) {
-  .statsRow { grid-template-columns: 1fr; }
-  .statsRow > *:last-child { grid-column: span 1; }
-  .formGrid3 { grid-template-columns: 1fr; }
-  .formCard { padding: 20px 16px; }
-  .detailBanner { padding: 26px 16px 22px; }
-  .detailBody { padding: 18px 14px 12px; }
-  .parentHeader { padding: 36px 16px 30px; }
-  .parentBody { padding: 18px 12px 16px; }
-  .lessonFormHead { padding: 14px 16px; }
+
+@media print {
+  .dojo-parent-print-btn,
+  .dojo-print-btn-bottom {
+    display: none;
+  }
 }
