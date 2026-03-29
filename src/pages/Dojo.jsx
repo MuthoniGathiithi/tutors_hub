@@ -304,11 +304,7 @@ export default function Dojo() {
             </div>
             <div className={styles.fieldGroup}>
               <label className={styles.fieldLabel}>{newYearGradeLabel} / Class</label>
-              {yearGradeOpts.length > 0 ? (
-                <StyledSelect value={newGrade} onChange={e => setNewGrade(e.target.value)} options={yearGradeOpts} placeholder={`Select ${newYearGradeLabel.toLowerCase()}…`} />
-              ) : (
-                <input className={styles.fieldInput} value={newGrade} onChange={e => setNewGrade(e.target.value)} placeholder={`e.g. ${newYearGradeLabel} 10`} />
-              )}
+              <input className={styles.fieldInput} value={newGrade} onChange={e => setNewGrade(e.target.value)} placeholder={`e.g. ${newYearGradeLabel} 10, Form 3…`} />
             </div>
             <div className={styles.fieldGroup}>
               <label className={styles.fieldLabel}>Label Preference</label>
@@ -637,4 +633,4 @@ function LiField({ label, val, extra }) {
       <span className={styles.liFieldVal}>{val}{extra && <span className={styles.liFieldExtra}> · {extra}</span>}</span>
     </div>
   )
-}hhhh
+}

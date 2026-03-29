@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
-import { addSession, updateSession, getSession, makeId, SUBJECTS, GRADES, DAYS, BEHAVIOUR } from '../data'
+import { addSession, updateSession, getSession, makeId, SUBJECTS, DAYS, BEHAVIOUR } from '../data'
 import { Header, Btn, Card, CardHeader, CardBody, FormGroup, Input, Select, Textarea, Grid, Toast } from '../components/UI'
 import styles from './NewSession.module.css'
 
@@ -101,7 +101,7 @@ export default function NewSession() {
   const save = () => {
     if (!form.teacherName.trim()) return showToast('Please enter tutor name')
     if (!form.subject) return showToast('Please select a subject')
-    if (!form.grade) return showToast('Please select a class/grade')
+    if (!form.grade) return showToast('Please enter class/grade')
     if (!form.date) return showToast('Please enter date')
     if (!form.topic.trim()) return showToast('Please enter topic')
     if (form.students.length === 0) return showToast('Add at least one student')
@@ -147,10 +147,10 @@ export default function NewSession() {
                 />
               </FormGroup>
               <FormGroup label="Class / Grade" required>
-                <Select
+                <Input
                   value={form.grade}
                   onChange={e => set('grade', e.target.value)}
-                  options={GRADES.map(g => ({ value: g, label: g || 'Select grade…' }))}
+                  placeholder="e.g. Grade 7, Form 3, Year 10…"
                 />
               </FormGroup>
               <FormGroup label="Curriculum">

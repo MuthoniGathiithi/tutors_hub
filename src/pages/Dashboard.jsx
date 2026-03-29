@@ -13,7 +13,7 @@ export default function Dashboard() {
 
       <div className={styles.hero}>
         <div className={styles.heroInner}>
-          <div className={styles.heroTag}>Learning Hub</div>
+          <div className={styles.heroTag}>Tutors hub</div>
           <h1 className={styles.heroTitle}>Welcome, Tutor</h1>
           <p className={styles.heroSub}>Create a student to start tracking lessons and sharing progress with parents.</p>
           <Btn variant="gold" onClick={() => navigate('/dojo?create=1')}>+ Create Student</Btn>
