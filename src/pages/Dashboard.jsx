@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { Header, Btn } from '../components/UI'
-import styles from './Dashboard.module.css'
+import styles from './Dashboard.css'
 
 export default function Dashboard() {
   const navigate = useNavigate()
