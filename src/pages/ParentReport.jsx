@@ -258,4 +258,4 @@ function ExamCell({ label, val, bold, color: col }) {
       <div className={styles.examCellValue} style={bold ? { fontWeight: 800, color: col } : {}}>{val}</div>
     </div>
   )
-}
+}  hhfhhghh

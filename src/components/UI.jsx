@@ -8,8 +8,8 @@ export function Header({ right }) {
       <div className={styles.logo}>
         <div className={styles.logoIcon} />
         <div>
-          <div className={styles.logoName}>EduTrack</div>
-          <div className={styles.logoSub}>Teacher's Portal</div>
+          <div className={styles.logoName}>Tutors Hub</div>
+          <div className={styles.logoSub}>Tutor Portal</div>
         </div>
       </div>
       {right && <div>{right}</div>}
