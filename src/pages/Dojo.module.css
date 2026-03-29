@@ -1,165 +1,224 @@
-/* ── Design tokens ────────────────────────────────── */
-:root {
-  --form-radius: 14px;
-  --field-radius: 10px;
-}
+/* ═══════════════════════════════════════════════════
+   DOJO — Beautiful White UI
+   ═══════════════════════════════════════════════════ */
 
 /* ── Hero ─────────────────────────────────────────── */
 .hero {
-  background: linear-gradient(135deg, #0f2b5b 0%, #1a3d7a 60%, #0f2b5b 100%);
-  border-bottom: 1px solid var(--border);
-  padding: 48px 32px 40px;
+  background: linear-gradient(135deg, #0f2b5b 0%, #1e3f80 55%, #0f2b5b 100%);
+  padding: 52px 32px 44px;
   position: relative;
   overflow: hidden;
 }
 .hero::before {
   content: '';
-  position: absolute;
-  top: -60px; right: -60px;
-  width: 260px; height: 260px;
-  background: radial-gradient(circle, rgba(232,160,0,.18) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
+  position: absolute; top: -80px; right: -80px;
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(232,160,0,.22) 0%, transparent 68%);
+  border-radius: 50%; pointer-events: none;
 }
 .hero::after {
   content: '';
-  position: absolute;
-  bottom: -40px; left: 40%;
-  width: 180px; height: 180px;
-  background: radial-gradient(circle, rgba(255,255,255,.05) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
+  position: absolute; bottom: -60px; left: 30%;
+  width: 240px; height: 240px;
+  background: radial-gradient(circle, rgba(255,255,255,.06) 0%, transparent 70%);
+  border-radius: 50%; pointer-events: none;
 }
 .heroInner { max-width: 560px; position: relative; z-index: 1; }
+
 .heroTag {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   background: rgba(232,160,0,.18);
-  color: #f0c040;
+  color: #fbbf24;
   font-size: 10px;
   font-weight: 800;
   letter-spacing: .18em;
   text-transform: uppercase;
   padding: 5px 14px;
   border-radius: 50px;
-  margin-bottom: 16px;
-  border: 1px solid rgba(232,160,0,.3);
+  margin-bottom: 18px;
+  border: 1px solid rgba(232,160,0,.32);
 }
 .heroTitle {
-  margin-bottom: 10px;
-  color: #fff;
-  font-size: clamp(26px, 4vw, 38px);
   font-family: 'Lora', serif;
+  color: #fff;
+  font-size: clamp(28px, 4vw, 40px);
   font-weight: 700;
-  letter-spacing: -.01em;
+  letter-spacing: -.02em;
+  margin-bottom: 12px;
+  line-height: 1.1;
 }
 .heroSub {
-  color: rgba(255,255,255,.65);
+  color: rgba(255,255,255,.62);
   font-size: 15px;
   margin-bottom: 28px;
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 /* ── Container ───────────────────────────────────── */
-.container { max-width: 1000px; margin: 0 auto; padding: 36px 24px 60px; }
+.container { max-width: 1040px; margin: 0 auto; padding: 36px 24px 64px; }
 
-/* ── Stats ───────────────────────────────────────── */
+/* ── Stats row ───────────────────────────────────── */
 .statsRow {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  gap: 16px;
   margin-bottom: 36px;
 }
 .statCard {
   background: #fff;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  box-shadow: 0 2px 12px rgba(15,43,91,.07);
-  padding: 24px 20px;
+  border-radius: 16px;
+  border: 1px solid #e4ecf7;
+  box-shadow: 0 2px 14px rgba(15,43,91,.07);
+  padding: 26px 20px;
   text-align: center;
-  transition: transform .2s, box-shadow .2s;
+  transition: transform .22s, box-shadow .22s;
   position: relative;
   overflow: hidden;
 }
 .statCard::after {
   content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
+  position: absolute; top: 0; left: 0; right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #0f2b5b, #e8a000);
-  border-radius: 14px 14px 0 0;
+  background: linear-gradient(90deg, #0f2b5b 0%, #e8a000 100%);
+  border-radius: 16px 16px 0 0;
 }
-.statCard:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(15,43,91,.13); }
-.statNum { font-family: 'Lora', serif; font-size: 36px; color: #0f2b5b; line-height: 1; font-weight: 700; }
-.statLbl { font-size: 11.5px; color: var(--muted); margin-top: 6px; font-weight: 600; letter-spacing: .04em; }
+.statCard:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(15,43,91,.13); }
+.statNum {
+  font-family: 'Lora', serif;
+  font-size: 40px;
+  color: #0f2b5b;
+  line-height: 1;
+  font-weight: 700;
+}
+.statLbl { font-size: 11px; color: #7a8aaa; margin-top: 7px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
 
 /* ── Section head ────────────────────────────────── */
 .sectionHead {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
-.sectionHead h2 { color: #0f2b5b; font-size: 18px; }
+.sectionHead h2 {
+  color: #0f2b5b;
+  font-size: 19px;
+  font-family: 'Lora', serif;
+  font-weight: 700;
+}
 
 /* ── Empty card ──────────────────────────────────── */
 .emptyCard {
   background: #fff;
-  border-radius: 14px;
-  border: 2px dashed #d0d8ea;
-  padding: 40px 24px;
+  border-radius: 16px;
+  border: 2px dashed #d0ddf0;
+  padding: 48px 24px;
   text-align: center;
-  color: var(--muted);
+  color: #7a8aaa;
 }
-.emptyCard p { margin-bottom: 18px; font-size: 14px; }
+.emptyCard p { margin-bottom: 20px; font-size: 14.5px; color: #5a6a8a; }
 
 /* ── Student list ────────────────────────────────── */
 .studentList { display: flex; flex-direction: column; gap: 12px; }
+
 .studentCard {
   background: #fff;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  box-shadow: 0 2px 10px rgba(15,43,91,.06);
+  border-radius: 16px;
+  border: 1px solid #e4ecf7;
+  border-left-width: 5px;
+  box-shadow: 0 2px 12px rgba(15,43,91,.06);
   display: flex;
   align-items: center;
   gap: 16px;
   padding: 18px 20px;
   cursor: pointer;
-  transition: transform .2s, box-shadow .2s;
+  transition: transform .2s, box-shadow .22s;
 }
-.studentCard:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(15,43,91,.12); }
+.studentCard:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(15,43,91,.13); }
+
 .studentAvatar {
-  width: 48px; height: 48px;
+  width: 52px; height: 52px;
   border-radius: 14px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 20px; font-weight: 800;
-  flex-shrink: 0;
   font-family: 'Lora', serif;
+  font-size: 22px; font-weight: 800;
+  flex-shrink: 0;
 }
 .studentInfo { flex: 1; min-width: 0; }
-.studentName { font-family: 'Lora', serif; font-size: 16px; font-weight: 700; color: #0f2b5b; margin-bottom: 6px; }
+.studentName {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
 .studentMeta { display: flex; flex-wrap: wrap; gap: 5px; }
 .pill {
-  background: #f0f4ff;
+  background: #f0f5ff;
   border-radius: 50px;
-  padding: 3px 10px;
+  padding: 3px 11px;
   font-size: 11px;
   font-weight: 600;
-  color: #0f2b5b;
+  color: #3a4a6a;
+  border: 1px solid #e0eaff;
 }
 .studentActions { display: flex; gap: 7px; flex-shrink: 0; flex-wrap: wrap; }
 
 /* ── Form page ───────────────────────────────────── */
-.formPage { max-width: 760px; margin: 0 auto; padding: 36px 20px 60px; }
-.formPageHead { margin-bottom: 28px; }
-.formPageHead h1 { color: #0f2b5b; font-size: clamp(22px, 3vw, 30px); margin-bottom: 6px; }
-.formPageHead p { color: var(--muted); font-size: 14px; }
+.formPage { max-width: 780px; margin: 0 auto; padding: 36px 20px 64px; }
+
+.formPageHead { margin-bottom: 30px; }
+.formPageTag {
+  display: inline-block;
+  background: #e8f0ff;
+  color: #0f2b5b;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  padding: 5px 13px;
+  border-radius: 50px;
+  margin-bottom: 12px;
+  border: 1px solid #c8daff;
+}
+.formPageHead h1 {
+  font-family: 'Lora', serif;
+  color: #0f2b5b;
+  font-size: clamp(22px, 3.5vw, 32px);
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.formPageHead p { color: #5a6a8a; font-size: 14.5px; line-height: 1.65; }
+
+/* ── Lesson form head (coloured student strip) ───── */
+.lessonFormHead {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #e4ecf7;
+  box-shadow: 0 2px 10px rgba(15,43,91,.06);
+  padding: 18px 22px;
+  margin-bottom: 20px;
+}
+.lessonFormAvatar {
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Lora', serif;
+  font-size: 22px; font-weight: 800;
+  flex-shrink: 0;
+}
+.lessonFormTag { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 4px; }
+.lessonFormStudent { font-family: 'Lora', serif; font-size: 18px; font-weight: 700; }
 
 /* ── Form card ───────────────────────────────────── */
 .formCard {
   background: #fff;
-  border-radius: var(--form-radius);
-  border: 1px solid #e0e8f5;
-  box-shadow: 0 2px 14px rgba(15,43,91,.07);
+  border-radius: 16px;
+  border: 1px solid #e4ecf7;
+  box-shadow: 0 2px 14px rgba(15,43,91,.06);
   padding: 26px 24px;
   margin-bottom: 18px;
   position: relative;
@@ -167,205 +226,471 @@
 }
 .formCard::before {
   content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
+  position: absolute; top: 0; left: 0; right: 0;
   height: 3px;
   background: linear-gradient(90deg, #0f2b5b 0%, #e8a000 100%);
-  border-radius: var(--form-radius) var(--form-radius) 0 0;
+  border-radius: 16px 16px 0 0;
 }
 
 .formCardTitle {
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: .12em;
+  letter-spacing: .13em;
   color: #0f2b5b;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 9px;
 }
 .formCardTitle::before {
   content: '';
-  display: inline-block;
-  width: 4px; height: 16px;
+  display: block;
+  width: 4px; height: 18px;
   background: #e8a000;
   border-radius: 4px;
+  flex-shrink: 0;
 }
-.formCardSub { font-weight: 400; font-size: 11px; color: var(--muted); letter-spacing: .04em; }
+.formCardSub {
+  font-weight: 500;
+  font-size: 11px;
+  color: #9aaac8;
+  letter-spacing: .03em;
+  text-transform: none;
+}
 
 /* ── Field group ─────────────────────────────────── */
-.fieldGroup { display: flex; flex-direction: column; gap: 6px; }
+.fieldGroup { display: flex; flex-direction: column; gap: 7px; }
+
 .fieldLabel {
   font-size: 12px;
   font-weight: 700;
-  color: #1a2d4e;
+  color: #0f2340;         /* rich dark — not grey */
   letter-spacing: .03em;
 }
-.req { color: #e8a000; margin-left: 2px; }
+.req { color: #e8a000; }
+
+/* ── Inputs & textareas ──────────────────────────── */
 .fieldInput {
   border: 1.5px solid #d4dded;
-  border-radius: var(--field-radius);
-  padding: 10px 13px;
+  border-radius: 10px;
+  padding: 11px 14px;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 14px;
-  color: #1a2340;
+  color: #0d1f3c;          /* rich dark text */
   background: #fff;
   outline: none;
   width: 100%;
-  transition: border-color .2s, box-shadow .2s, background .2s;
+  transition: border-color .2s, box-shadow .2s;
+  -webkit-appearance: none;
 }
 .fieldInput:focus {
   border-color: #0f2b5b;
-  box-shadow: 0 0 0 3px rgba(15,43,91,.1);
-  background: #fff;
+  box-shadow: 0 0 0 3.5px rgba(15,43,91,.11);
 }
-.fieldInput::placeholder { color: #b0bccc; }
-.fieldInput[type="date"], .fieldInput[type="time"] { cursor: pointer; }
+/* Dark rich placeholder — not grey */
+.fieldInput::placeholder { color: #4a5a7a; opacity: 1; font-weight: 500; }
+.fieldInput[type="date"]::-webkit-calendar-picker-indicator { cursor: pointer; }
 
 .fieldTextarea {
   border: 1.5px solid #d4dded;
-  border-radius: var(--field-radius);
-  padding: 10px 13px;
+  border-radius: 10px;
+  padding: 11px 14px;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 14px;
-  color: #1a2340;
+  color: #0d1f3c;
   background: #fff;
   outline: none;
   width: 100%;
-  min-height: 90px;
+  min-height: 96px;
   resize: vertical;
   transition: border-color .2s, box-shadow .2s;
+  line-height: 1.6;
 }
 .fieldTextarea:focus {
   border-color: #0f2b5b;
-  box-shadow: 0 0 0 3px rgba(15,43,91,.1);
+  box-shadow: 0 0 0 3.5px rgba(15,43,91,.11);
 }
-.fieldTextarea::placeholder { color: #b0bccc; }
+.fieldTextarea::placeholder { color: #4a5a7a; opacity: 1; font-weight: 500; }
 
-/* ── Select wrap ─────────────────────────────────── */
+/* ── Select ──────────────────────────────────────── */
 .selectWrap { position: relative; }
 .select {
   border: 1.5px solid #d4dded;
-  border-radius: var(--field-radius);
-  padding: 10px 36px 10px 13px;
+  border-radius: 10px;
+  padding: 11px 38px 11px 14px;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 14px;
-  color: #1a2340;
+  color: #0d1f3c;
   background: #fff;
   outline: none;
   width: 100%;
   cursor: pointer;
   appearance: none;
+  -webkit-appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8.5L1.5 3.5h9z' fill='%230f2b5b'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 12px center;
+  background-position: right 13px center;
   transition: border-color .2s, box-shadow .2s;
 }
-.select:focus { border-color: #0f2b5b; box-shadow: 0 0 0 3px rgba(15,43,91,.1); }
-
-/* ── Grid helpers ────────────────────────────────── */
-.formGrid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.formGrid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.select:focus { border-color: #0f2b5b; box-shadow: 0 0 0 3.5px rgba(15,43,91,.11); }
+.select option { color: #0d1f3c; }
 
 /* ── Toggle row ──────────────────────────────────── */
-.toggleRow { display: flex; gap: 6px; flex-wrap: wrap; }
+.toggleRow { display: flex; gap: 7px; flex-wrap: wrap; }
 .toggle {
-  padding: 8px 16px;
-  border-radius: 8px;
+  padding: 9px 17px;
+  border-radius: 9px;
   border: 1.5px solid #d4dded;
   background: #fff;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 12.5px;
   font-weight: 600;
-  color: #4a5568;
+  color: #3a4a6a;
   cursor: pointer;
   transition: all .18s;
 }
-.toggle:hover { border-color: #0f2b5b; color: #0f2b5b; background: #f0f4ff; }
-.toggleActive { background: #0f2b5b !important; color: #fff !important; border-color: #0f2b5b !important; }
+.toggle:hover { border-color: #0f2b5b; color: #0f2b5b; background: #f0f5ff; }
+.toggleActive { background: #0f2b5b !important; color: #fff !important; border-color: #0f2b5b !important; box-shadow: 0 3px 10px rgba(15,43,91,.25); }
 
+/* ── Grid helpers ────────────────────────────────── */
+.formGrid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.formGrid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
 
-.formActions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-  margin-top: 8px;
-}
+/* ── Form actions ────────────────────────────────── */
+.formActions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 8px; }
 
 /* ── Detail banner ───────────────────────────────── */
 .detailBanner {
   color: #fff;
-  padding: 36px 28px 30px;
+  padding: 36px 28px 28px;
   position: relative;
   overflow: hidden;
 }
 .detailBanner::before {
   content: '';
-  position: absolute;
-  top: -50px; right: -50px;
-  width: 200px; height: 200px;
+  position: absolute; top: -60px; right: -60px;
+  width: 220px; height: 220px;
   background: radial-gradient(circle, rgba(255,255,255,.1) 0%, transparent 70%);
-  border-radius: 50%;
+  border-radius: 50%; pointer-events: none;
 }
-.detailBannerLeft { display: flex; align-items: center; gap: 18px; margin-bottom: 20px; }
+.detailBannerLeft { display: flex; align-items: center; gap: 18px; margin-bottom: 20px; position: relative; z-index: 1; }
 .detailAvatar {
-  width: 60px; height: 60px;
-  border-radius: 16px;
+  width: 64px; height: 64px;
+  border-radius: 18px;
   display: flex; align-items: center; justify-content: center;
   font-family: 'Lora', serif;
-  font-size: 26px;
-  font-weight: 800;
+  font-size: 28px; font-weight: 800;
   flex-shrink: 0;
 }
-.detailName { font-family: 'Lora', serif; font-size: 22px; font-weight: 700; }
-.detailGrade { font-size: 13px; opacity: .65; margin-top: 4px; }
-.detailCount { font-size: 12px; opacity: .5; margin-top: 3px; }
-.detailActions { display: flex; gap: 8px; flex-wrap: wrap; }
+.detailName { font-family: 'Lora', serif; font-size: 24px; font-weight: 700; margin-bottom: 5px; }
+.detailGrade { font-size: 13px; opacity: .65; margin-bottom: 4px; }
+.detailCount { font-size: 12px; opacity: .45; }
+.detailActions { display: flex; gap: 8px; flex-wrap: wrap; position: relative; z-index: 1; }
 .detailAccent { height: 4px; position: absolute; bottom: 0; left: 0; right: 0; }
 
 /* ── Detail body ─────────────────────────────────── */
-.detailBody { max-width: 900px; margin: 0 auto; padding: 28px 24px; }
+.detailBody { max-width: 920px; margin: 0 auto; padding: 28px 24px 16px; }
 
-/* ── Lesson item ─────────────────────────────────── */
+/* ── Lesson item (teacher detail view) ───────────── */
 .lessonItem {
   background: #fff;
-  border-radius: 12px;
-  border: 1px solid var(--border);
+  border-radius: 14px;
+  border: 1px solid #e4ecf7;
   border-left-width: 4px;
   box-shadow: 0 2px 10px rgba(15,43,91,.06);
-  padding: 18px 20px;
-  margin-bottom: 12px;
+  padding: 20px 22px;
+  margin-bottom: 14px;
   transition: box-shadow .2s;
 }
-.lessonItem:hover { box-shadow: 0 6px 22px rgba(15,43,91,.1); }
-.liHeader { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; gap: 12px; }
-.liDate { font-size: 13px; font-weight: 600; color: var(--muted); margin-bottom: 5px; }
-.liSubject { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.liSubjectBadge { padding: 3px 10px; border-radius: 50px; color: #fff; font-size: 11px; font-weight: 700; letter-spacing: .04em; }
-.liTopic { font-family: 'Lora', serif; font-size: 15px; font-weight: 700; color: #0f2b5b; }
-.liSubtopic { font-size: 13px; color: var(--muted); }
-.liActions { display: flex; gap: 6px; flex-shrink: 0; }
-.liField { display: flex; gap: 10px; padding: 7px 0; border-top: 1px solid #f0f4ff; align-items: flex-start; }
-.liFieldLabel { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); min-width: 100px; flex-shrink: 0; padding-top: 2px; }
-.liFieldVal { font-size: 13.5px; color: #1a2340; flex: 1; line-height: 1.5; }
-.liFieldExtra { color: var(--muted); font-size: 12px; }
+.lessonItem:hover { box-shadow: 0 7px 26px rgba(15,43,91,.11); }
 
-/* ── Exam display inside lesson ───────────────────── */
-.liExam {
+.liHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+.liDate { font-size: 12.5px; font-weight: 700; color: #7a8aaa; margin-bottom: 6px; }
+.liTime { font-size: 12px; color: #9aaac8; }
+.liSubjectRow { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+.liSubjectBadge {
+  padding: 3px 11px;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  flex-shrink: 0;
+}
+.liTopic { font-family: 'Lora', serif; font-size: 15.5px; font-weight: 700; }
+.liSubtopic { font-size: 13px; color: #7a8aaa; }
+.liActions { display: flex; gap: 6px; flex-shrink: 0; }
+
+/* Field rows */
+.liField {
+  display: flex;
+  gap: 12px;
+  padding: 8px 0;
+  border-top: 1px solid #f0f5ff;
+  align-items: flex-start;
+}
+.liFieldLabel {
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #8898bb;
+  min-width: 110px;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+.liFieldVal { font-size: 13.5px; color: #0d1f3c; flex: 1; line-height: 1.55; }
+.liFieldExtra { color: #8898bb; font-size: 12px; }
+
+/* Assignment */
+.liAssignment {
   border-radius: 10px;
   padding: 14px 16px;
-  margin-top: 10px;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
-.liExamTitle { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 10px; }
-.liExamGrid { display: flex; flex-wrap: wrap; gap: 10px; }
+.liAssignmentLabel { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .11em; }
+.liAssignmentText  { font-size: 13.5px; color: #1a2d4e; line-height: 1.6; }
+.liAssignmentDue   { font-size: 12px; font-weight: 700; opacity: .8; }
 
-.examMini { min-width: 90px; }
-.examMiniLabel { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #8892aa; margin-bottom: 2px; }
-.examMiniVal { font-size: 13px; font-weight: 600; color: #1a2340; }
+/* Exam */
+.liExam { border-radius: 10px; padding: 14px 16px; margin-top: 12px; }
+.liExamTitle { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 11px; }
+.liExamGrid { display: flex; flex-wrap: wrap; gap: 14px; }
+
+.examMini { min-width: 88px; }
+.examMiniLabel { font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: .09em; color: #8898bb; margin-bottom: 3px; }
+.examMiniVal { font-size: 13.5px; font-weight: 600; color: #1a2d4e; }
 
 /* ── Danger zone ─────────────────────────────────── */
-.dangerZone { padding: 0 24px 32px; display: flex; justify-content: flex-end; }
+.dangerZone { padding: 0 24px 36px; display: flex; justify-content: flex-end; }
+
+/* ═══════════════════════════════════════════════════
+   PARENT VIEW
+   ═══════════════════════════════════════════════════ */
+.parentPage { min-height: 100vh; background: #f3f6fb; }
+
+.parentHeader {
+  color: #fff;
+  padding: 52px 20px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.parentHeader::before {
+  content: '';
+  position: absolute; top: -90px; right: -90px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(255,255,255,.12) 0%, transparent 68%);
+  border-radius: 50%; pointer-events: none;
+}
+.parentHeader::after {
+  content: '';
+  position: absolute; bottom: -50px; left: 20%;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(255,255,255,.06) 0%, transparent 70%);
+  border-radius: 50%; pointer-events: none;
+}
+.parentHeaderInner { max-width: 520px; margin: 0 auto; position: relative; z-index: 1; }
+
+.parentBrand {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  opacity: .45;
+  margin-bottom: 22px;
+}
+.parentAvatar {
+  width: 70px; height: 70px;
+  border-radius: 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Lora', serif;
+  font-size: 30px; font-weight: 800;
+  margin: 0 auto 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+.parentName {
+  font-family: 'Lora', serif;
+  font-size: clamp(24px, 5vw, 32px);
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: -.01em;
+}
+.parentGrade {
+  display: inline-block;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  margin-bottom: 12px;
+}
+.parentCount { font-size: 13px; opacity: .45; margin-bottom: 22px; }
+
+.parentPrintBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 28px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: .02em;
+  transition: opacity .2s, transform .15s;
+  box-shadow: 0 4px 16px rgba(0,0,0,.2);
+}
+.parentPrintBtn:hover { opacity: .87; transform: translateY(-1px); }
+.parentPrintBtn:active { transform: translateY(0); }
+
+.parentAccent { height: 4px; position: absolute; bottom: 0; left: 0; right: 0; }
+
+.parentBody { max-width: 640px; margin: 0 auto; padding: 28px 16px 20px; }
+
+.emptyNote {
+  text-align: center; padding: 48px 24px;
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #e4ecf7;
+  color: #7a8aaa;
+  font-size: 14px;
+}
+
+/* ── Lesson card (parent) ────────────────────────── */
+.lessonCard {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #e4ecf7;
+  border-top-width: 3px;
+  box-shadow: 0 3px 14px rgba(15,43,91,.07);
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+/* Date + tutor strip */
+.lcTopStrip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.lcTopLeft { display: flex; align-items: center; gap: 12px; }
+.lcDateBox {
+  border-radius: 10px;
+  padding: 8px 11px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.lcDateDay { font-size: 20px; font-weight: 800; color: #fff; line-height: 1; }
+.lcDateMon { font-size: 9px; color: rgba(255,255,255,.7); text-transform: uppercase; letter-spacing: .07em; margin-top: 2px; }
+.lcDate { font-size: 13px; font-weight: 700; color: #1a2d4e; }
+.lcTime { font-size: 11.5px; color: #8898bb; margin-top: 2px; }
+.lcTutorChip {
+  border-radius: 50px;
+  padding: 5px 14px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  flex-shrink: 0;
+}
+
+/* Subject + topic */
+.lcSubjectRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px 10px;
+  flex-wrap: wrap;
+  border-top: 1px solid #f0f5ff;
+}
+.lcSubjectBadge {
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: .05em;
+  flex-shrink: 0;
+}
+.lcTopic { font-family: 'Lora', serif; font-size: 16px; font-weight: 700; }
+.lcSubtopic { font-size: 13px; color: #8898bb; }
+
+/* Info rows */
+.lcField {
+  display: flex;
+  gap: 12px;
+  padding: 9px 18px;
+  border-top: 1px solid #f0f5ff;
+  align-items: flex-start;
+}
+.lcFieldLabel {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  color: #8898bb;
+  min-width: 110px;
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+.lcFieldVal { font-size: 14px; color: #0d1f3c; flex: 1; line-height: 1.6; font-weight: 500; }
+
+/* Assignment */
+.lcAssignment {
+  margin: 12px 18px;
+  border-radius: 10px;
+  padding: 14px 16px;
+  border-left-width: 4px;
+  border-left-style: solid;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.lcAssignmentLabel { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 2px; }
+.lcAssignmentText  { font-size: 14px; color: #1a2d4e; line-height: 1.65; font-weight: 500; }
+.lcAssignmentDue   { font-size: 12px; font-weight: 700; opacity: .8; margin-top: 2px; }
+
+/* Exam */
+.lcExam {
+  margin: 12px 18px 14px;
+  border-radius: 10px;
+  padding: 14px 16px;
+  border-left-width: 4px;
+  border-left-style: solid;
+}
+.lcExamTitle { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 12px; }
+.lcExamGrid  { display: flex; flex-wrap: wrap; gap: 14px; }
+
+/* ── Bottom print row ─────────────────────────────── */
+.parentPrintRow { text-align: center; padding: 8px 16px 48px; }
+.printBtnBottom {
+  border: none;
+  border-radius: 50px;
+  padding: 14px 38px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: .03em;
+  box-shadow: 0 4px 18px rgba(0,0,0,.18);
+  transition: opacity .2s, transform .15s;
+}
+.printBtnBottom:hover { opacity: .87; transform: translateY(-2px); }
+.printBtnBottom:active { transform: translateY(0); }
 
 /* ── Not found ───────────────────────────────────── */
 .notFound {
@@ -374,86 +699,43 @@
   align-items: center; justify-content: center;
   text-align: center; padding: 40px 20px;
 }
-.nfCode { font-family: 'Lora', serif; font-size: 90px; font-weight: 700; color: #e8ecf4; line-height: 1; margin-bottom: 16px; }
-.notFound h2 { font-size: 22px; color: #1a2340; margin-bottom: 8px; }
-.notFound p { color: var(--muted); font-size: 14px; }
+.nfCode { font-family: 'Lora', serif; font-size: 96px; font-weight: 700; color: #e4ecf7; line-height: 1; margin-bottom: 18px; }
+.notFound h2 { font-size: 22px; color: #0f2b5b; margin-bottom: 8px; }
+.notFound p  { color: #7a8aaa; font-size: 14px; }
 
-/* ── Parent view ─────────────────────────────────── */
-.parentPage { min-height: 100vh; background: #f4f7fb; }
-.parentHeader { color: #fff; padding: 48px 20px 36px; text-align: center; position: relative; overflow: hidden; }
-.parentHeader::before {
-  content: '';
-  position: absolute; top: -80px; right: -80px;
-  width: 280px; height: 280px;
-  background: radial-gradient(circle, rgba(255,255,255,.1) 0%, transparent 70%);
-  border-radius: 50%;
+/* ── Print styles ────────────────────────────────── */
+@media print {
+  .parentHeader, .lcTopStrip, .lcDateBox { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .parentPrintBtn, .parentPrintRow { display: none; }
+  .parentPage { background: #fff; }
+  .lessonCard { box-shadow: none; border: 1px solid #ddd; page-break-inside: avoid; }
 }
-.parentHeaderInner { max-width: 500px; margin: 0 auto; position: relative; z-index: 1; }
-.parentBrand { font-size: 10px; font-weight: 900; letter-spacing: .22em; text-transform: uppercase; opacity: .45; margin-bottom: 20px; }
-.parentAvatar {
-  width: 64px; height: 64px;
-  border-radius: 18px;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Lora', serif;
-  font-size: 28px; font-weight: 800;
-  margin: 0 auto 14px;
-}
-.parentName { font-family: 'Lora', serif; font-size: 28px; font-weight: 700; margin-bottom: 10px; }
-.parentGrade { display: inline-block; border-radius: 6px; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 5px 14px; margin-bottom: 10px; }
-.parentCount { font-size: 13px; opacity: .5; }
-.parentAccent { height: 4px; position: absolute; bottom: 0; left: 0; right: 0; }
-
-.parentBody { max-width: 600px; margin: 0 auto; padding: 24px 16px 60px; }
-
-.emptyNote { text-align: center; padding: 40px; background: #fff; border-radius: 14px; color: var(--muted); font-size: 14px; border: 1px solid var(--border); }
-
-/* ── Lesson card (parent view) ───────────────────── */
-.lessonCard {
-  background: #fff;
-  border-radius: 14px;
-  border: 1px solid #e0e8f5;
-  box-shadow: 0 2px 12px rgba(15,43,91,.07);
-  padding: 20px 20px 16px;
-  margin-bottom: 14px;
-  border-top-width: 3px;
-}
-.lcHeader { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 6px; }
-.lcDate { font-size: 12.5px; font-weight: 700; color: var(--muted); }
-.lcTutor { font-size: 12px; font-weight: 600; }
-.lcSubjectRow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
-.lcBadge { padding: 3px 11px; border-radius: 50px; color: #fff; font-size: 11px; font-weight: 700; flex-shrink: 0; }
-.lcTopic { font-family: 'Lora', serif; font-size: 16px; font-weight: 700; }
-.lcSubtopic { font-size: 13px; color: var(--muted); }
-.lcField { display: flex; gap: 10px; padding: 7px 0; border-top: 1px solid #f2f5fb; align-items: flex-start; }
-.lcFieldLabel { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); min-width: 90px; flex-shrink: 0; padding-top: 2px; }
-.lcFieldVal { font-size: 13.5px; color: #1a2340; flex: 1; line-height: 1.5; }
-.lcAssignment { border-radius: 10px; padding: 12px 14px; margin-top: 10px; display: flex; flex-direction: column; gap: 4px; }
-.lcAssignmentLabel { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; }
-.lcAssignmentText { font-size: 13.5px; color: #2d3748; line-height: 1.6; }
-.lcAssignmentDue { font-size: 12px; font-weight: 700; opacity: .75; }
-.lcExam { border-radius: 10px; padding: 14px 16px; margin-top: 10px; }
-.lcExamTitle { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 10px; }
-.lcExamGrid { display: flex; flex-wrap: wrap; gap: 10px; }
 
 /* ── Responsive ──────────────────────────────────── */
 @media (max-width: 700px) {
-  .hero { padding: 32px 18px 28px; }
+  .hero { padding: 36px 18px 30px; }
   .statsRow { grid-template-columns: 1fr 1fr; }
   .statsRow > *:last-child { grid-column: span 2; }
   .studentCard { flex-wrap: wrap; }
-  .studentActions { width: 100%; justify-content: flex-end; margin-top: 8px; }
+  .studentActions { width: 100%; justify-content: flex-start; margin-top: 10px; gap: 6px; }
   .formGrid2 { grid-template-columns: 1fr; }
   .formGrid3 { grid-template-columns: 1fr 1fr; }
   .detailBannerLeft { flex-wrap: wrap; }
   .liHeader { flex-direction: column; }
   .liActions { align-self: flex-end; }
+  .lcTopStrip { padding: 12px 14px; }
+  .lcSubjectRow { padding: 12px 14px 8px; }
+  .lcField { padding: 8px 14px; }
+  .lcFieldLabel { min-width: 88px; }
 }
 @media (max-width: 480px) {
   .statsRow { grid-template-columns: 1fr; }
   .statsRow > *:last-child { grid-column: span 1; }
   .formGrid3 { grid-template-columns: 1fr; }
-  .detailBanner { padding: 24px 16px 20px; }
   .formCard { padding: 20px 16px; }
-  .detailBody { padding: 18px 14px; }
-  .parentBody { padding: 16px 12px 48px; }
+  .detailBanner { padding: 26px 16px 22px; }
+  .detailBody { padding: 18px 14px 12px; }
+  .parentHeader { padding: 36px 16px 30px; }
+  .parentBody { padding: 18px 12px 16px; }
+  .lessonFormHead { padding: 14px 16px; }
 }
