@@ -1,122 +1,125 @@
 /* ── Page container ──────────────────────────────── */
-.container { max-width: 900px; margin: 0 auto; padding: 36px 20px 60px; }
+.container { max-width: 1000px; margin: 0 auto; padding: 48px 24px 80px; }
 
 /* ── Page head ───────────────────────────────────── */
-.pageHead { margin-bottom: 32px; }
+.pageHead { margin-bottom: 48px; }
 .pageHead h1 {
-  color: #0f2b5b;
-  font-size: clamp(22px, 3.5vw, 32px);
-  margin-bottom: 8px;
-  font-family: 'Lora', serif;
+  color: #1a202c;
+  font-size: clamp(28px, 4vw, 36px);
+  margin-bottom: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
-.pageHead p { color: #6b7a99; font-size: 14.5px; line-height: 1.6; }
+.pageHead p { color: #718096; font-size: 16px; line-height: 1.6; font-weight: 500; }
 
 /* ── Add student row ─────────────────────────────── */
 .addRow {
   display: grid;
   grid-template-columns: 1fr 1fr auto;
-  gap: 12px;
-  padding: 20px;
-  background: linear-gradient(135deg, #f0f4ff 0%, #e8f0ff 100%);
-  border-radius: 12px;
-  border: 1.5px dashed #b8c8e8;
-  margin-bottom: 20px;
+  gap: 16px;
+  padding: 28px;
+  background: #f7fafc;
+  border-radius: 14px;
+  border: 2px solid #e2e8f0;
+  margin-bottom: 28px;
   align-items: end;
 }
 .addBtnWrap { display: flex; align-items: flex-end; }
 
 .noStudents {
   text-align: center;
-  padding: 36px 24px;
-  color: #8892aa;
-  font-size: 14px;
-  background: #f8faff;
-  border-radius: 10px;
-  border: 2px dashed #d0daee;
+  padding: 48px 32px;
+  color: #a0aec0;
+  font-size: 15px;
+  background: #f9fafb;
+  border-radius: 14px;
+  border: 2px solid #e2e8f0;
 }
 
 /* ── Table ───────────────────────────────────────── */
 .tableWrap {
   overflow-x: auto;
-  border-radius: 12px;
-  border: 1px solid #e0e8f4;
-  box-shadow: 0 2px 10px rgba(15,43,91,.05);
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
-.table { width: 100%; border-collapse: collapse; font-size: 13px; }
-.table thead { background: linear-gradient(90deg, #0f2b5b 0%, #1a3d7a 100%); }
+.table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.table thead { background: #2d3748; }
 .table th {
-  padding: 12px 13px;
+  padding: 16px 14px;
   text-align: left;
-  font-size: 10px;
-  font-weight: 800;
+  font-size: 11px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .09em;
-  color: rgba(255,255,255,.75);
+  letter-spacing: 0.08em;
+  color: #cbd5e0;
   white-space: nowrap;
+  border-bottom: 2px solid #e2e8f0;
 }
 .table td {
-  padding: 9px 10px;
-  border-top: 1px solid #edf2fb;
+  padding: 14px 14px;
+  border-top: 1px solid #edf2f7;
   vertical-align: middle;
 }
-.table tr:hover td { background: #f5f8ff; }
-.tdNum { color: #8892aa; font-size: 11.5px; font-weight: 700; text-align: center; width: 32px; }
-.tdName { font-weight: 700; color: #0f2b5b; white-space: nowrap; }
+.table tr:hover td { background: #f7fafc; }
+.tdNum { color: #a0aec0; font-size: 13px; font-weight: 600; text-align: center; width: 36px; }
+.tdName { font-weight: 600; color: #1a202c; white-space: nowrap; }
 
 /* ── Table inputs ────────────────────────────────── */
 .tableInput {
-  border: 1.5px solid transparent;
-  background: #f5f8ff;
-  padding: 6px 9px;
-  border-radius: 7px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 13px;
-  color: #1a2340;
+  border: 1.5px solid #e2e8f0;
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #1a202c;
   outline: none;
   width: 100%;
   min-width: 80px;
-  transition: border-color .2s, background .2s, box-shadow .2s;
+  transition: all 0.2s ease;
 }
 .tableInput:focus {
-  border-color: #0f2b5b;
+  border-color: #2b6cb0;
   background: #fff;
-  box-shadow: 0 0 0 2.5px rgba(15,43,91,.12);
+  box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.1);
 }
-.tableInput::placeholder { color: #c0cae0; }
+.tableInput::placeholder { color: #cbd5e0; }
 
 .tableSelect {
-  border: 1.5px solid transparent;
-  background: #f5f8ff;
-  padding: 6px 28px 6px 9px;
-  border-radius: 7px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 12.5px;
-  color: #1a2340;
+  border: 1.5px solid #e2e8f0;
+  background: #fff;
+  padding: 8px 28px 8px 12px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #1a202c;
   outline: none;
   cursor: pointer;
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M5 7L1 2h8z' fill='%230f2b5b'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M5 7L1 2h8z' fill='%232d3748'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 9px center;
-  transition: border-color .2s, background .2s;
+  background-position: right 10px center;
+  transition: all 0.2s ease;
 }
-.tableSelect:focus { border-color: #0f2b5b; background-color: #fff; }
+.tableSelect:focus { border-color: #2b6cb0; background-color: #fff; box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.1); }
 
 /* ── Remove btn ──────────────────────────────────── */
 .removeBtn {
-  background: none;
-  border: 1.5px solid #e0e8f4;
+  background: #fff;
+  border: 1.5px solid #e2e8f0;
   cursor: pointer;
-  color: #8892aa;
-  font-size: 11.5px;
-  padding: 5px 12px;
-  border-radius: 6px;
-  transition: all .2s;
+  color: #718096;
+  font-size: 13px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
   white-space: nowrap;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 600;
+  font-family: inherit;
+  font-weight: 500;
 }
-.removeBtn:hover { background: #fff0f0; color: #d94f4f; border-color: #d94f4f; }
+.removeBtn:hover { background: #fed7d7; color: #c53030; border-color: #fc8181; }
 
 /* ── Actions ─────────────────────────────────────── */
 .actions {
@@ -126,9 +129,13 @@
 }
 
 /* ── Responsive ──────────────────────────────────── */
-@media (max-width: 600px) {
-  .addRow { grid-template-columns: 1fr; }
+@media (max-width: 768px) {
+  .container { padding: 36px 16px 60px; }
+  .addRow { grid-template-columns: 1fr; gap: 12px; }
   .addBtnWrap { width: 100%; }
-  .actions { flex-direction: column-reverse; }
-  .container { padding: 24px 14px 48px; }
+  .actions { flex-direction: column-reverse; gap: 12px; }
+}
+@media (max-width: 600px) {
+  .pageHead { margin-bottom: 32px; }
+  .pageHead h1 { font-size: 24px; }
 }
