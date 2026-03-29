@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:    #5B21B6;
+  --navy2:   #6D28D9;
+  --gold:    #A78BFA;
+  --gold-lt: #F3E8FF;
+  --gold-dk: #7C3AED;
+  --cream:   #FFFFFF;
+  --white:   #FFFFFF;
+  --ink:     #1C2536;
+  --muted:   #6B7A99;
+  --border:  #E0D8CE;
+  --sky:     #EEF3FB;
+  --green:   #1E9E6E;
+  --green-lt:#E2F6EF;
+  --red:     #D94F4F;
+  --red-lt:  #FDEAEA;
+  --r: 14px;
+  --rs: 8px;
+  --shadow: 0 2px 16px rgba(15,32,68,.09);
+  --shadow-lg: 0 10px 40px rgba(15,32,68,.15);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+/* ── Typography ── */
+h1, h2, h3 { font-family: 'Lora', serif; line-height: 1.25; }
+h1 { font-size: clamp(24px, 4vw, 34px); }
+h2 { font-size: clamp(18px, 3vw, 24px); }
+h3 { font-size: 18px; }
+
+/* ── Animations ── */
+@keyframes fadeUp   { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn   { from { opacity:0; } to { opacity:1; } }
+@keyframes scaleIn  { from { opacity:0; transform:scale(.95); } to { opacity:1; transform:scale(1); } }
+@keyframes spin     { to { transform: rotate(360deg); } }
+
+.fade-up  { animation: fadeUp  .4s ease both; }
+.fade-in  { animation: fadeIn  .3s ease both; }
+.scale-in { animation: scaleIn .3s ease both; }
+
+/* ── Print ── */
+@media print {
+  .no-print { display: none !important; }
+  body { background: #fff; }
+}

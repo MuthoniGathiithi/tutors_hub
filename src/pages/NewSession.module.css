@@ -1,0 +1,113 @@
+.container { max-width: 900px; margin: 0 auto; padding: 36px 20px 60px; }
+.pageHead { margin-bottom: 28px; }
+.pageHead h1 { margin-bottom: 6px; color: var(--navy); }
+.pageHead p  { color: var(--muted); font-size: 14px; }
+
+/* Add student row */
+.addRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 12px;
+  padding: 18px;
+  background: var(--sky);
+  border-radius: var(--rs);
+  border: 1.5px dashed var(--border);
+  margin-bottom: 18px;
+  align-items: end;
+}
+.addBtnWrap { display: flex; align-items: flex-end; }
+
+.noStudents {
+  text-align: center;
+  padding: 32px;
+  color: var(--muted);
+  font-size: 14px;
+  background: var(--sky);
+  border-radius: var(--rs);
+}
+
+/* Table */
+.tableWrap { overflow-x: auto; border-radius: var(--rs); border: 1px solid var(--border); }
+.table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.table thead { background: var(--sky); }
+.table th {
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.table td {
+  padding: 8px 10px;
+  border-top: 1px solid var(--border);
+  vertical-align: middle;
+}
+.table tr:hover td { background: #fafcff; }
+.tdNum  { color: var(--muted); font-size: 12px; font-weight: 700; text-align: center; width: 32px; }
+.tdName { font-weight: 700; color: var(--navy); white-space: nowrap; }
+
+.tableInput {
+  border: 1.5px solid transparent;
+  background: transparent;
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13.5px;
+  color: var(--ink);
+  outline: none;
+  width: 100%;
+  min-width: 80px;
+  transition: border-color .2s, background .2s;
+}
+.tableInput:focus {
+  border-color: var(--gold);
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(240,165,0,.15);
+}
+.tableInput::placeholder { color: #c0cae0; }
+
+.tableSelect {
+  border: 1.5px solid transparent;
+  background: transparent;
+  padding: 5px 28px 5px 8px;
+  border-radius: 5px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  color: var(--ink);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M5 7L1 2h8z' fill='%236B7A99'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  transition: border-color .2s;
+}
+.tableSelect:focus { border-color: var(--gold); background-color: #fff; }
+
+.removeBtn {
+  background: none;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  transition: all .2s;
+  white-space: nowrap;
+}
+.removeBtn:hover { background: var(--red-lt); color: var(--red); border-color: var(--red); }
+
+.actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+@media (max-width: 600px) {
+  .addRow { grid-template-columns: 1fr; }
+  .addBtnWrap { width: 100%; }
+  .actions { flex-direction: column-reverse; }
+}
