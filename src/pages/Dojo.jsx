@@ -557,10 +557,10 @@ export default function Dojo() {
   return (
     <div>
       <Header right={<Btn onClick={() => setView('create-student')}>+ New Student</Btn>} />
-      <div style={{ maxWidth: '900px', margin: '0 auto', padding: '32px 20px 64px' }}>
-        <div style={{ marginBottom: '28px' }}>
-          <h1 style={{ fontSize: '28px', fontWeight: '700', color: '#1f2937', marginBottom: '8px' }}>Learning Hub</h1>
-          <p style={{ color: '#6b7280', fontSize: '15px' }}>Manage your students and track their progress</p>
+      <div className="dojo-list-wrap">
+        <div className="dojo-list-head">
+          <h1 className="dojo-list-title">Learning Hub</h1>
+          <p className="dojo-list-sub">Manage your students and track their progress.</p>
         </div>
 
         {students.length === 0 ? (
@@ -569,14 +569,15 @@ export default function Dojo() {
             <Btn onClick={() => setView('create-student')}>+ New Student</Btn>
           </div>
         ) : (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <div className="dojo-student-list">
             {students.map((s, idx) => {
               const color = getColor(idx)
               const lessons = studentLessons(s.id)
               return (
-                <div
+                <button
                   key={s.id}
                   className="dojo-student-card"
+                  type="button"
                   onClick={() => { setSelectedStudent(s); setView('student-detail') }}
                   style={{ borderLeftColor: color.accent }}
                 >
@@ -585,13 +586,13 @@ export default function Dojo() {
                   </div>
                   <div className="dojo-student-info">
                     <div className="dojo-student-name">{s.name}</div>
-                    <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                    <div className="dojo-student-meta">
                       {s.curriculum && <div className="dojo-pill">{s.curriculum}</div>}
-                      {s.grade && <div className="dojo-pill">{s.grade}</div>}
-                      <div className="dojo-pill">{lessons.length} lessons</div>
+                      {s.grade && <div className="dojo-pill">{(s.yearGradeLabel || 'Grade') + ' ' + s.grade}</div>}
+                      <div className="dojo-pill">{lessons.length} lesson{lessons.length !== 1 ? 's' : ''}</div>
                     </div>
                   </div>
-                </div>
+                </button>
               )
             })}
           </div>
