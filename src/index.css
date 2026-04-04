@@ -8,7 +8,7 @@
   --gold:    #A78BFA;
   --gold-lt: #F3E8FF;
   --gold-dk: #7C3AED;
-  --cream:   #FFFFFF;
+  --cream:   #FBFAFF;
   --white:   #FFFFFF;
   --ink:     #1C2536;
   --muted:   #6B7A99;
@@ -22,13 +22,17 @@
   --rs: 8px;
   --shadow: 0 2px 16px rgba(15,32,68,.09);
   --shadow-lg: 0 10px 40px rgba(15,32,68,.15);
+  --ring: rgba(167, 139, 250, .35);
 }
 
 html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  background: var(--cream);
+  background:
+    radial-gradient(900px circle at 12% -12%, rgba(167,139,250,.30) 0%, transparent 58%),
+    radial-gradient(900px circle at 88% -18%, rgba(91,33,182,.18) 0%, transparent 55%),
+    var(--cream);
   color: var(--ink);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
@@ -36,6 +40,17 @@ body {
 
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+::selection { background: rgba(167, 139, 250, .25); }
+
+:focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+}
 
 /* ── Typography ── */
 h1, h2, h3 { font-family: 'Lora', serif; line-height: 1.25; }
