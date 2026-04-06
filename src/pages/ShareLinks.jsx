@@ -5,7 +5,7 @@ import { Header, Btn, Card, CardHeader, CardBody, Toast } from '../components/UI
 import styles from './ShareLinks.module.css'
 
 const STUDENT_COLORS = [
-  '#0f2b5b', '#0d4a2f', '#4a0d1a', '#2a0d4a', '#0d3a4a', '#3a2a0d'
+  '#1e3a5f', '#059669', '#b45309', '#7c3aed', '#0e7490', '#be185d'
 ]
 const getStudentColor = (i) => STUDENT_COLORS[i % STUDENT_COLORS.length]
 
@@ -62,7 +62,6 @@ export default function ShareLinks() {
     const base = window.location.pathname.split('#')[0]
     const url = `${window.location.origin}${base}#/report/${sessionId}/${studentId}?print=1`
     const win = window.open(url, '_blank')
-    // Fallback: if the new tab can't auto-print, the user can use the Print button inside the report
     if (win) win.focus()
   }
 
@@ -103,7 +102,7 @@ export default function ShareLinks() {
 
       <div className={styles.container}>
 
-        <Card style={{ marginBottom: 20 }}>
+        <Card style={{ marginBottom: 16 }}>
           <CardHeader title="Bulk Share" sub="Send all student links at once" />
           <CardBody>
             <div className={styles.bulkRow}>
@@ -157,7 +156,7 @@ export default function ShareLinks() {
                       Preview
                     </Btn>
                     <Btn variant="outline" size="xs" onClick={() => printReport(s.id)}>
-                      Print Report
+                      Print
                     </Btn>
                   </div>
                 </div>

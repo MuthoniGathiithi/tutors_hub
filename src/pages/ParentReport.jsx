@@ -4,12 +4,12 @@ import { getSession, formatDate } from '../data'
 import styles from './ParentReport.module.css'
 
 const STUDENT_COLORS = [
-  { bg: '#0f2b5b', accent: '#e8a000', light: '#fffbf0', border: '#e8a00030' },
-  { bg: '#0d4a2f', accent: '#1aaa6b', light: '#f0faf5', border: '#1aaa6b30' },
-  { bg: '#4a0d1a', accent: '#d94f4f', light: '#fff5f5', border: '#d94f4f30' },
-  { bg: '#2a0d4a', accent: '#8b5cf6', light: '#f8f5ff', border: '#8b5cf630' },
-  { bg: '#0d3a4a', accent: '#0ea5d4', light: '#f0faff', border: '#0ea5d430' },
-  { bg: '#3a2a0d', accent: '#d97706', light: '#fffbf0', border: '#d9770630' },
+  { bg: '#1e3a5f', accent: '#3b82f6', light: '#e8f0fb' },
+  { bg: '#059669', accent: '#10b981', light: '#ecfdf5' },
+  { bg: '#b45309', accent: '#f59e0b', light: '#fef3c7' },
+  { bg: '#7c3aed', accent: '#a78bfa', light: '#f5f3ff' },
+  { bg: '#0e7490', accent: '#06b6d4', light: '#e0f2fe' },
+  { bg: '#be185d', accent: '#f472b6', light: '#fdf2f8' },
 ]
 const getColor = (i) => STUDENT_COLORS[i % STUDENT_COLORS.length]
 
@@ -44,7 +44,6 @@ export default function ParentReport() {
     setSession(s); setStudent(s.students[i]); setIdx(i)
   }, [sessionId, studentId])
 
-  // Auto-trigger print when opened via Print button
   useEffect(() => {
     if (!session || !student) return
     const params = new URLSearchParams(location.search || location.hash?.split('?')[1] || '')
@@ -78,7 +77,7 @@ export default function ParentReport() {
 
       <div className={styles.header} style={{ background: color.bg }}>
         <div className={styles.headerInner}>
-          <div className={styles.headerBrand}>Learning Hub</div>
+          <div className={styles.headerBrand}>Tutors Hub</div>
           <div className={styles.headerTitle}>Class Report</div>
           <div className={styles.headerSub}>{session.subject} &mdash; {session.grade}</div>
           {session.curriculum && <div className={styles.headerCurriculum}>{session.curriculum}</div>}
@@ -182,7 +181,6 @@ export default function ParentReport() {
           </Section>
         )}
 
-        {/* Examination */}
         {hasExam && (
           <Section title="Examination" color={color}>
             <div className={styles.examGrid}>
@@ -206,7 +204,7 @@ export default function ParentReport() {
           </div>
           <div className={styles.sigRight}>
             <div className={styles.sigLabel}>Powered by</div>
-            <div className={styles.sigBrand} style={{ color: color.bg }}>Learning Hub</div>
+            <div className={styles.sigBrand} style={{ color: color.bg }}>Tutors Hub</div>
           </div>
         </div>
 

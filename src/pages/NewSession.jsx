@@ -26,7 +26,6 @@ const empty = () => ({
   homeworkDue: '',
   nextClass: '',
   teacherRemarks: '',
-  // Exam fields
   examType: '',
   examDateSet: '',
   examDateGiven: '',
@@ -54,7 +53,6 @@ export default function NewSession() {
     }
   }, [editId])
 
-  // Auto-fill day from date
   useEffect(() => {
     if (form.date) {
       const d = new Date(form.date + 'T00:00:00')
@@ -124,8 +122,8 @@ export default function NewSession() {
           <p>Fill in session details below, add students, then save to generate shareable links.</p>
         </div>
 
-        {/* CARD 1: Session Info */}
-        <Card style={{ marginBottom: 20 }}>
+        {/* Session Details */}
+        <Card style={{ marginBottom: 16 }}>
           <CardHeader title="Session Details" sub="Date, time and class information" />
           <CardBody>
             <Grid cols={3}>
@@ -133,12 +131,11 @@ export default function NewSession() {
                 <Input type="date" value={form.date} onChange={e => set('date', e.target.value)} />
               </FormGroup>
               <FormGroup label="Day">
-                <Input value={form.day} readOnly style={{ background: 'var(--sky)', cursor: 'default' }} />
+                <Input value={form.day} readOnly style={{ background: '#f7f8fa', cursor: 'default', fontWeight: 600 }} />
               </FormGroup>
               <FormGroup label="Time">
                 <Input type="time" value={form.time} onChange={e => set('time', e.target.value)} />
               </FormGroup>
-
               <FormGroup label="Subject" required>
                 <Select
                   value={form.subject}
@@ -147,11 +144,7 @@ export default function NewSession() {
                 />
               </FormGroup>
               <FormGroup label="Class / Grade" required>
-                <Input
-                  value={form.grade}
-                  onChange={e => set('grade', e.target.value)}
-                  placeholder="e.g. Grade 7, Form 3, Year 10…"
-                />
+                <Input value={form.grade} onChange={e => set('grade', e.target.value)} placeholder="e.g. Grade 7, Form 3, Year 10…" />
               </FormGroup>
               <FormGroup label="Curriculum">
                 <Select
@@ -160,102 +153,54 @@ export default function NewSession() {
                   options={[{ value: '', label: 'Select curriculum…' }, ...CURRICULUM_TYPES.map(c => ({ value: c, label: c }))]}
                 />
               </FormGroup>
-
               <FormGroup label="Tutor's Name" required>
-                <Input
-                  value={form.teacherName}
-                  onChange={e => set('teacherName', e.target.value)}
-                  placeholder="Mr. / Ms. …"
-                />
+                <Input value={form.teacherName} onChange={e => set('teacherName', e.target.value)} placeholder="Mr. / Ms. …" />
               </FormGroup>
               <FormGroup label="School Name" span={2}>
-                <Input
-                  value={form.school}
-                  onChange={e => set('school', e.target.value)}
-                  placeholder="e.g. Nairobi Academy"
-                />
+                <Input value={form.school} onChange={e => set('school', e.target.value)} placeholder="e.g. Nairobi Academy" />
               </FormGroup>
             </Grid>
           </CardBody>
         </Card>
 
-        {/* CARD 2: Lesson Info */}
-        <Card style={{ marginBottom: 20 }}>
+        {/* Lesson Details */}
+        <Card style={{ marginBottom: 16 }}>
           <CardHeader title="Lesson Details" sub="What was covered in today's class" />
           <CardBody>
             <Grid cols={2}>
               <FormGroup label="Topic / Unit" required>
-                <Input
-                  value={form.topic}
-                  onChange={e => set('topic', e.target.value)}
-                  placeholder="e.g. Fractions"
-                />
+                <Input value={form.topic} onChange={e => set('topic', e.target.value)} placeholder="e.g. Fractions" />
               </FormGroup>
               <FormGroup label="Sub-topic">
-                <Input
-                  value={form.subtopic}
-                  onChange={e => set('subtopic', e.target.value)}
-                  placeholder="e.g. Adding fractions with unlike denominators"
-                />
+                <Input value={form.subtopic} onChange={e => set('subtopic', e.target.value)} placeholder="e.g. Adding fractions with unlike denominators" />
               </FormGroup>
               <FormGroup label="Book / Reference Material">
-                <Input
-                  value={form.book || ''}
-                  onChange={e => set('book', e.target.value)}
-                  placeholder="e.g. Oxford Primary Maths Book 4"
-                />
+                <Input value={form.book || ''} onChange={e => set('book', e.target.value)} placeholder="e.g. Oxford Primary Maths Book 4" />
               </FormGroup>
               <FormGroup label="Page(s) / Reference">
-                <Input
-                  value={form.page}
-                  onChange={e => set('page', e.target.value)}
-                  placeholder="e.g. Pg 34–38  |  Handout 3"
-                />
+                <Input value={form.page} onChange={e => set('page', e.target.value)} placeholder="e.g. Pg 34–38  |  Handout 3" />
               </FormGroup>
               <FormGroup label="Content Taught / Summary" span={2}>
-                <Textarea
-                  value={form.covered}
-                  onChange={e => set('covered', e.target.value)}
-                  placeholder="Describe what was covered in class today…"
-                />
+                <Textarea value={form.covered} onChange={e => set('covered', e.target.value)} placeholder="Describe what was covered in class today…" />
               </FormGroup>
               <FormGroup label="Assignment / Homework">
-                <Textarea
-                  value={form.homework}
-                  onChange={e => set('homework', e.target.value)}
-                  placeholder="e.g. Exercise 4, Q 1–10; write a composition on…"
-                  style={{ minHeight: 70 }}
-                />
+                <Textarea value={form.homework} onChange={e => set('homework', e.target.value)} placeholder="e.g. Exercise 4, Q 1–10" style={{ minHeight: 70 }} />
               </FormGroup>
               <FormGroup label="Assignment Due Date">
-                <Input
-                  type="date"
-                  value={form.homeworkDue || ''}
-                  onChange={e => set('homeworkDue', e.target.value)}
-                />
+                <Input type="date" value={form.homeworkDue || ''} onChange={e => set('homeworkDue', e.target.value)} />
               </FormGroup>
               <FormGroup label="Next Class Plan" span={2}>
-                <Textarea
-                  value={form.nextClass}
-                  onChange={e => set('nextClass', e.target.value)}
-                  placeholder="What will be covered in the next lesson…"
-                  style={{ minHeight: 70 }}
-                />
+                <Textarea value={form.nextClass} onChange={e => set('nextClass', e.target.value)} placeholder="What will be covered in the next lesson…" style={{ minHeight: 70 }} />
               </FormGroup>
               <FormGroup label="Tutor's Remarks" span={2}>
-                <Textarea
-                  value={form.teacherRemarks}
-                  onChange={e => set('teacherRemarks', e.target.value)}
-                  placeholder="General remarks about the class…"
-                  style={{ minHeight: 70 }}
-                />
+                <Textarea value={form.teacherRemarks} onChange={e => set('teacherRemarks', e.target.value)} placeholder="General remarks about the class…" style={{ minHeight: 70 }} />
               </FormGroup>
             </Grid>
           </CardBody>
         </Card>
 
-        {/* CARD 2b: Examination */}
-        <Card style={{ marginBottom: 20 }}>
+        {/* Examination */}
+        <Card style={{ marginBottom: 16 }}>
           <CardHeader title="Examination" sub="Fill only if an exam was conducted — all fields optional" />
           <CardBody>
             <Grid cols={3}>
@@ -282,11 +227,13 @@ export default function NewSession() {
                 <Input type="date" value={form.examDateRevised || ''} onChange={e => set('examDateRevised', e.target.value)} />
               </FormGroup>
             </Grid>
-            <p style={{ fontSize: 12, color: 'var(--muted)', marginTop: 8 }}>Individual student scores and grades can be entered in the Students section below.</p>
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: '#9ca3af', marginTop: 8 }}>
+              Individual student scores and grades can be entered in the Students section below.
+            </p>
           </CardBody>
         </Card>
 
-        {/* CARD 3: Students */}
+        {/* Students */}
         <Card style={{ marginBottom: 28 }}>
           <CardHeader
             title="Students"
@@ -317,9 +264,7 @@ export default function NewSession() {
             </div>
 
             {form.students.length === 0 ? (
-              <div className={styles.noStudents}>
-                No students yet — add them above
-              </div>
+              <div className={styles.noStudents}>No students yet — add them above</div>
             ) : (
               <div className={styles.tableWrap}>
                 <table className={styles.table}>
@@ -343,65 +288,27 @@ export default function NewSession() {
                         <td className={styles.tdNum}>{i + 1}</td>
                         <td className={styles.tdName}>{s.name}</td>
                         <td>
-                          <input
-                            className={styles.tableInput}
-                            value={s.admNo}
-                            onChange={e => updateStudent(s.id, 'admNo', e.target.value)}
-                            placeholder="—"
-                          />
+                          <input className={styles.tableInput} value={s.admNo} onChange={e => updateStudent(s.id, 'admNo', e.target.value)} placeholder="—" />
                         </td>
                         <td>
-                          <input
-                            className={styles.tableInput}
-                            value={s.marks}
-                            onChange={e => updateStudent(s.id, 'marks', e.target.value)}
-                            placeholder="e.g. 78/100"
-                          />
+                          <input className={styles.tableInput} value={s.marks} onChange={e => updateStudent(s.id, 'marks', e.target.value)} placeholder="e.g. 78/100" />
                         </td>
                         <td>
-                          <input
-                            className={styles.tableInput}
-                            value={s.examScore || ''}
-                            onChange={e => updateStudent(s.id, 'examScore', e.target.value)}
-                            placeholder="Exam score"
-                            style={{ width: 80 }}
-                          />
+                          <input className={styles.tableInput} value={s.examScore || ''} onChange={e => updateStudent(s.id, 'examScore', e.target.value)} placeholder="Score" style={{ width: 80 }} />
                         </td>
                         <td>
-                          <input
-                            className={styles.tableInput}
-                            value={s.examGrade || ''}
-                            onChange={e => updateStudent(s.id, 'examGrade', e.target.value)}
-                            placeholder="Exam grd"
-                            style={{ width: 70 }}
-                          />
+                          <input className={styles.tableInput} value={s.examGrade || ''} onChange={e => updateStudent(s.id, 'examGrade', e.target.value)} placeholder="Grade" style={{ width: 70 }} />
                         </td>
                         <td>
-                          <input
-                            className={styles.tableInput}
-                            value={s.grade}
-                            onChange={e => updateStudent(s.id, 'grade', e.target.value)}
-                            placeholder="A / B+"
-                            style={{ width: 60 }}
-                          />
+                          <input className={styles.tableInput} value={s.grade} onChange={e => updateStudent(s.id, 'grade', e.target.value)} placeholder="A / B+" style={{ width: 60 }} />
                         </td>
                         <td>
-                          <select
-                            className={styles.tableSelect}
-                            value={s.behaviour}
-                            onChange={e => updateStudent(s.id, 'behaviour', e.target.value)}
-                          >
+                          <select className={styles.tableSelect} value={s.behaviour} onChange={e => updateStudent(s.id, 'behaviour', e.target.value)}>
                             {BEHAVIOUR.map(b => <option key={b}>{b}</option>)}
                           </select>
                         </td>
                         <td>
-                          <input
-                            className={styles.tableInput}
-                            value={s.remarks}
-                            onChange={e => updateStudent(s.id, 'remarks', e.target.value)}
-                            placeholder="Tutor's note…"
-                            style={{ minWidth: 160 }}
-                          />
+                          <input className={styles.tableInput} value={s.remarks} onChange={e => updateStudent(s.id, 'remarks', e.target.value)} placeholder="Tutor's note…" style={{ minWidth: 160 }} />
                         </td>
                         <td>
                           <button className={styles.removeBtn} onClick={() => removeStudent(s.id)}>Remove</button>
@@ -415,7 +322,6 @@ export default function NewSession() {
           </CardBody>
         </Card>
 
-        {/* Actions */}
         <div className={styles.actions}>
           <Btn variant="outline" onClick={() => navigate('/')}>Cancel</Btn>
           <Btn variant="gold" onClick={save}>

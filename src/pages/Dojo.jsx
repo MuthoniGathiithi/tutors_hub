@@ -3,21 +3,21 @@ import { useParams, useLocation } from 'react-router-dom'
 import './Dojo.css'
 import { Header, Btn, Toast } from '../components/UI'
 
-// ─── Storage ─────────────────────────────────────────────────────────────────
+// ─── Storage ──────────────────────────────────────────────────────────────────
 const STUDENTS_KEY = 'lh_students'
 const LESSONS_KEY  = 'lh_lessons'
 const load   = (key) => { try { return JSON.parse(localStorage.getItem(key) || '[]') } catch { return [] } }
 const save   = (key, val) => localStorage.setItem(key, JSON.stringify(val))
 const makeId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 6)
 
-// ─── Per-student colour palette ───────────────────────────────────────────────
+// ─── Colour palette ───────────────────────────────────────────────────────────
 const STUDENT_COLORS = [
-  { bg: '#2563eb', accent: '#3b82f6', light: '#eff6ff' },
-  { bg: '#059669', accent: '#10b981', light: '#f0fdf4' },
-  { bg: '#dc2626', accent: '#ef4444', light: '#fef2f2' },
-  { bg: '#7c3aed', accent: '#a78bfa', light: '#faf5ff' },
-  { bg: '#0891b2', accent: '#06b6d4', light: '#f0f9ff' },
-  { bg: '#ea580c', accent: '#fb923c', light: '#fff7ed' },
+  { bg: '#1e3a5f', accent: '#3b82f6', light: '#e8f0fb' },
+  { bg: '#059669', accent: '#10b981', light: '#ecfdf5' },
+  { bg: '#b45309', accent: '#f59e0b', light: '#fef3c7' },
+  { bg: '#7c3aed', accent: '#a78bfa', light: '#f5f3ff' },
+  { bg: '#0e7490', accent: '#06b6d4', light: '#e0f2fe' },
+  { bg: '#be185d', accent: '#f472b6', light: '#fdf2f8' },
 ]
 const getColor = (i) => STUDENT_COLORS[i % STUDENT_COLORS.length]
 
@@ -58,8 +58,8 @@ function Field({ label, req, children, span }) {
 function ExamMini({ label, val, bold, color: col }) {
   return (
     <div className="dojo-exam-mini">
-      <span className="dojo-exam-mini-label">{label}</span>
-      <span className="dojo-exam-mini-val" style={bold ? { fontWeight: 800, color: col } : {}}>{val}</span>
+      <div className="dojo-exam-mini-label">{label}</div>
+      <div className="dojo-exam-mini-val" style={bold ? { fontWeight: 800, color: col } : {}}>{val}</div>
     </div>
   )
 }
@@ -88,7 +88,7 @@ function ParentView({ studentId }) {
     <div className="dojo-parent-page">
       <div className="dojo-parent-header" style={{ background: color.bg }}>
         <div className="dojo-parent-header-inner">
-          <div className="dojo-parent-brand">Learning Hub</div>
+          <div className="dojo-parent-brand">Tutors Hub</div>
           <div className="dojo-parent-avatar" style={{ background: color.accent, color: '#fff' }}>
             {student.name.charAt(0).toUpperCase()}
           </div>
@@ -99,7 +99,7 @@ function ParentView({ studentId }) {
             </div>
           )}
           <div className="dojo-parent-count">{history.length} lesson{history.length !== 1 ? 's' : ''} recorded</div>
-          <button className="dojo-parent-print-btn" style={{ background: color.accent, color: '#fff' }} onClick={() => window.print()}>
+          <button className="dojo-parent-print-btn" style={{ background: color.accent, color: color.bg }} onClick={() => window.print()}>
             Print / Save as PDF
           </button>
         </div>
@@ -110,14 +110,12 @@ function ParentView({ studentId }) {
         {history.length === 0 ? (
           <div className="dojo-empty-note">No lessons recorded yet for this student.</div>
         ) : history.map((l) => (
-          <div key={l.id} className="dojo-lesson-card" style={{ borderTop: `3px solid ${color.accent}` }}>
-
-            {/* Date + Tutor strip */}
-            <div className="dojo-lc-top-strip" style={{ background: color.bg + '0a' }}>
+          <div key={l.id} className="dojo-lesson-card" style={{ borderTopColor: color.accent }}>
+            <div className="dojo-lc-top-strip" style={{ background: color.bg + '0d' }}>
               <div className="dojo-lc-top-left">
                 <div className="dojo-lc-date-box" style={{ background: color.bg }}>
                   <div className="dojo-lc-date-day">{new Date((l.date || '') + 'T00:00:00').getDate() || '?'}</div>
-                  <div className="dojo-lc-date-mon">{new Date((l.date || '') + 'T00:00:00').toLocaleString('en-GB',{month:'short'})}</div>
+                  <div className="dojo-lc-date-mon">{new Date((l.date || '') + 'T00:00:00').toLocaleString('en-GB', { month: 'short' })}</div>
                 </div>
                 <div>
                   <div className="dojo-lc-date">{fmtDate(l.date)}</div>
@@ -131,31 +129,27 @@ function ParentView({ studentId }) {
               )}
             </div>
 
-            {/* Subject + Topic */}
             <div className="dojo-lc-subject-row">
-              <span className="dojo-lc-subject-badge" style={{ background: color.bg }}>{l.subject}</span>
+              <span className="dojo-lc-subject-badge" style={{ background: color.bg, color: '#fff' }}>{l.subject}</span>
               <span className="dojo-lc-topic" style={{ color: color.bg }}>{l.topic}</span>
               {l.subtopic && <span className="dojo-lc-subtopic">/ {l.subtopic}</span>}
             </div>
 
-            {/* Info fields */}
-            {l.book     && <LcRow label="Book / Reference" val={l.book}  />}
-            {l.page     && <LcRow label="Page(s)"          val={l.page}  />}
+            {l.book     && <LcRow label="Book / Reference" val={l.book} />}
+            {l.page     && <LcRow label="Page(s)"          val={l.page} />}
             {l.workDone && <LcRow label="Content Taught"   val={l.workDone} />}
-            {l.remarks  && <LcRow label="Tutor's Remarks"  val={l.remarks}  />}
+            {l.remarks  && <LcRow label="Tutor's Remarks"  val={l.remarks} />}
 
-            {/* Assignment */}
             {l.assignment && (
-              <div className="dojo-lc-assignment" style={{ background: color.light, borderLeft: `4px solid ${color.accent}` }}>
+              <div className="dojo-lc-assignment" style={{ background: color.light, borderLeftColor: color.accent }}>
                 <div className="dojo-lc-assignment-label" style={{ color: color.bg }}>Assignment</div>
                 <div className="dojo-lc-assignment-text">{l.assignment}</div>
                 {l.assignmentDue && <div className="dojo-lc-assignment-due" style={{ color: color.bg }}>Due: {fmtDate(l.assignmentDue)}</div>}
               </div>
             )}
 
-            {/* Exam */}
             {(l.examType || l.examScore || l.examGrade || l.examDateSet || l.examDateGiven) && (
-              <div className="dojo-lc-exam" style={{ background: color.light, borderLeft: `4px solid ${color.accent}` }}>
+              <div className="dojo-lc-exam" style={{ background: color.light, borderLeftColor: color.accent }}>
                 <div className="dojo-lc-exam-title" style={{ color: color.bg }}>Examination</div>
                 <div className="dojo-lc-exam-grid">
                   {l.examType        && <ExamMini label="Type"         val={l.examType} />}
@@ -240,7 +234,7 @@ export default function Dojo() {
 
   const whatsapp = (student) => {
     const url = getLink(student.id)
-    const msg = encodeURIComponent(`Hi! Here is ${student.name}'s learning history on Learning Hub:\n${url}`)
+    const msg = encodeURIComponent(`Hi! Here is ${student.name}'s learning history on Tutors Hub:\n${url}`)
     window.open(`https://wa.me/?text=${msg}`, '_blank')
   }
 
@@ -323,7 +317,7 @@ export default function Dojo() {
             </Field>
             <Field label="Label Preference">
               <div className="dojo-toggle-row">
-                {['Grade','Year','Class','Form'].map(opt => (
+                {['Grade', 'Year', 'Class', 'Form'].map(opt => (
                   <button key={opt} className={`dojo-toggle ${newYearGradeLabel === opt ? 'dojo-toggle-active' : ''}`} onClick={() => setNewYearGradeLabel(opt)}>{opt}</button>
                 ))}
               </div>
@@ -348,8 +342,8 @@ export default function Dojo() {
         <Header right={<Btn variant="outline" size="sm" onClick={() => { resetLesson(); setView('student-detail') }}>Back</Btn>} />
         <div className="dojo-form-page">
 
-          <div className="dojo-lesson-form-head" style={{ borderLeft: `5px solid ${color.accent}` }}>
-            <div className="dojo-lesson-form-avatar" style={{ background: color.bg, color: color.accent }}>
+          <div className="dojo-lesson-form-head" style={{ borderLeft: `4px solid ${color.bg}` }}>
+            <div className="dojo-lesson-form-avatar" style={{ background: color.bg, color: '#fff' }}>
               {selectedStudent?.name.charAt(0).toUpperCase()}
             </div>
             <div>
@@ -358,13 +352,12 @@ export default function Dojo() {
             </div>
           </div>
 
-          {/* SESSION INFO */}
           <div className="dojo-form-card">
             <div className="dojo-form-card-title">Session Info</div>
             <div className="dojo-form-grid-3">
               <Field label="Student Name">
                 <input className="dojo-field-input" value={selectedStudent?.name || ''} readOnly
-                  style={{ background: '#f8f9fa', cursor: 'default', fontWeight: 700, color: color.bg }} />
+                  style={{ background: '#f7f8fa', cursor: 'default', fontWeight: 700, color: color.bg }} />
               </Field>
               <Field label="Date" req>
                 <input className="dojo-field-input" type="date" value={lf.date} onChange={e => setL('date', e.target.value)} />
@@ -373,7 +366,7 @@ export default function Dojo() {
                 <input className="dojo-field-input" type="time" value={lf.time} onChange={e => setL('time', e.target.value)} />
               </Field>
               <Field label="Tutor's Name">
-                <input className="dojo-field-input" value={lf.tutor} onChange={e => setL('tutor', e.target.value)} placeholder="Mr. / Ms. Linda…" />
+                <input className="dojo-field-input" value={lf.tutor} onChange={e => setL('tutor', e.target.value)} placeholder="Mr. / Ms. …" />
               </Field>
               <Field label="Subject" req>
                 <input className="dojo-field-input" value={lf.subject} onChange={e => setL('subject', e.target.value)} placeholder="e.g. Mathematics" />
@@ -384,7 +377,6 @@ export default function Dojo() {
             </div>
           </div>
 
-          {/* LESSON CONTENT */}
           <div className="dojo-form-card">
             <div className="dojo-form-card-title">Lesson Content</div>
             <div className="dojo-form-grid-2">
@@ -410,7 +402,6 @@ export default function Dojo() {
             </div>
           </div>
 
-          {/* ASSIGNMENT */}
           <div className="dojo-form-card">
             <div className="dojo-form-card-title">Assignment</div>
             <div className="dojo-form-grid-2">
@@ -423,7 +414,6 @@ export default function Dojo() {
             </div>
           </div>
 
-          {/* EXAMINATION */}
           <div className="dojo-form-card">
             <div className="dojo-form-card-title">Examination</div>
             <div className="dojo-form-grid-3">
@@ -475,7 +465,7 @@ export default function Dojo() {
         <Header right={<Btn variant="outline" size="sm" onClick={() => setView('list')}>Back</Btn>} />
         <div className="dojo-detail-banner" style={{ background: color.bg }}>
           <div className="dojo-detail-banner-left">
-            <div className="dojo-detail-avatar" style={{ background: color.accent, color: '#fff' }}>
+            <div className="dojo-detail-avatar" style={{ background: color.accent, color: color.bg }}>
               {selectedStudent?.name.charAt(0).toUpperCase()}
             </div>
             <div>
@@ -502,7 +492,7 @@ export default function Dojo() {
             </div>
           ) : (
             sLessons.map((l) => (
-              <div key={l.id} className="dojo-lesson-item" style={{ borderLeft: `4px solid ${color.accent}` }}>
+              <div key={l.id} className="dojo-lesson-item" style={{ borderLeftColor: color.accent }}>
                 <div className="dojo-li-header">
                   <div>
                     <div className="dojo-li-date">{fmtDate(l.date)} {l.time && `at ${l.time}`}</div>
@@ -515,7 +505,7 @@ export default function Dojo() {
                 </div>
 
                 <div className="dojo-li-subject-row">
-                  <span className="dojo-li-subject-badge" style={{ background: color.accent, color: '#fff' }}>{l.subject}</span>
+                  <span className="dojo-li-subject-badge" style={{ background: color.bg, color: '#fff' }}>{l.subject}</span>
                   <span className="dojo-li-topic">{l.topic}</span>
                   {l.subtopic && <span className="dojo-li-subtopic">/ {l.subtopic}</span>}
                 </div>
@@ -559,37 +549,37 @@ export default function Dojo() {
       <Header right={<Btn onClick={() => setView('create-student')}>+ New Student</Btn>} />
       <div className="dojo-list-wrap">
         <div className="dojo-list-head">
-          <h1 className="dojo-list-title">Learning Hub</h1>
+          <h1 className="dojo-list-title">Tutors Hub</h1>
           <p className="dojo-list-sub">Manage your students and track their progress.</p>
         </div>
 
         {students.length === 0 ? (
           <div className="dojo-empty-card">
-            <p style={{ marginBottom: '16px' }}>No students yet. Create your first student to get started.</p>
+            <p>No students yet. Create your first student to get started.</p>
             <Btn onClick={() => setView('create-student')}>+ New Student</Btn>
           </div>
         ) : (
           <div className="dojo-student-list">
             {students.map((s, idx) => {
               const color = getColor(idx)
-              const lessons = studentLessons(s.id)
+              const count = studentLessons(s.id).length
               return (
                 <button
                   key={s.id}
                   className="dojo-student-card"
                   type="button"
                   onClick={() => { setSelectedStudent(s); setView('student-detail') }}
-                  style={{ borderLeftColor: color.accent }}
+                  style={{ borderLeftColor: color.bg }}
                 >
-                  <div className="dojo-student-avatar" style={{ background: color.accent, color: '#fff' }}>
+                  <div className="dojo-student-avatar" style={{ background: color.bg, color: '#fff' }}>
                     {s.name.charAt(0).toUpperCase()}
                   </div>
                   <div className="dojo-student-info">
                     <div className="dojo-student-name">{s.name}</div>
                     <div className="dojo-student-meta">
-                      {s.curriculum && <div className="dojo-pill">{s.curriculum}</div>}
-                      {s.grade && <div className="dojo-pill">{(s.yearGradeLabel || 'Grade') + ' ' + s.grade}</div>}
-                      <div className="dojo-pill">{lessons.length} lesson{lessons.length !== 1 ? 's' : ''}</div>
+                      {s.curriculum && <span className="dojo-pill">{s.curriculum}</span>}
+                      {s.grade && <span className="dojo-pill">{(s.yearGradeLabel || 'Grade') + ' ' + s.grade}</span>}
+                      <span className="dojo-pill">{count} lesson{count !== 1 ? 's' : ''}</span>
                     </div>
                   </div>
                 </button>

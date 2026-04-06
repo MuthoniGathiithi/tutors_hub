@@ -1,45 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap');
+
+/* ── Banner ──────────────────────────────────────── */
 .banner {
-  background: linear-gradient(135deg, #0f2b5b 0%, #1a3d7a 100%);
+  background: #1e3a5f;
   color: #fff;
-  padding: 36px 24px 30px;
+  padding: 40px 24px 34px;
 }
-.bannerInner { max-width: 900px; margin: 0 auto; }
+
+.bannerInner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 .bannerTag {
   display: inline-block;
-  background: rgba(255,255,255,.12);
-  color: rgba(255,255,255,.85);
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'DM Sans', sans-serif;
   font-size: 10px;
-  font-weight: 800;
-  letter-spacing: .14em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   padding: 4px 12px;
-  border-radius: 50px;
+  border-radius: 100px;
   margin-bottom: 12px;
-  border: 1px solid rgba(255,255,255,.18);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
+
 .bannerTitle {
+  font-family: 'Sora', sans-serif;
   font-size: clamp(18px, 3vw, 28px);
-  font-family: 'Lora', serif;
+  font-weight: 800;
+  letter-spacing: -0.03em;
   margin-bottom: 12px;
   color: #fff;
-  font-weight: 700;
 }
+
 .bannerMeta {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 18px;
+  gap: 6px 16px;
+  font-family: 'DM Sans', sans-serif;
   font-size: 13px;
-  opacity: .65;
+  opacity: 0.65;
 }
+
 .bannerMeta span::before {
   content: '·';
-  margin-right: 18px;
-  opacity: .4;
+  margin-right: 16px;
+  opacity: 0.4;
 }
-.bannerMeta span:first-child::before { content: ''; margin-right: 0; }
 
-.container { max-width: 900px; margin: 0 auto; padding: 28px 18px 60px; }
+.bannerMeta span:first-child::before {
+  content: '';
+  margin-right: 0;
+}
 
+/* ── Container ───────────────────────────────────── */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 28px 18px 64px;
+}
+
+/* ── Bulk row ────────────────────────────────────── */
 .bulkRow {
   display: flex;
   align-items: center;
@@ -47,18 +71,31 @@
   gap: 14px;
   flex-wrap: wrap;
 }
-.bulkInfo { font-size: 14px; color: #4a5568; }
-.bulkInfo strong { color: #1a2340; font-size: 20px; margin-right: 4px; }
 
-/* Link rows */
+.bulkInfo {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: #3d4250;
+}
+
+.bulkInfo strong {
+  font-family: 'Sora', sans-serif;
+  color: #0f1117;
+  font-size: 20px;
+  font-weight: 800;
+  margin-right: 4px;
+}
+
+/* ── Link rows ───────────────────────────────────── */
 .linkRow {
   display: flex;
   align-items: center;
   gap: 12px;
   padding: 13px 0;
-  border-bottom: 1px solid #edf0f7;
+  border-bottom: 1px solid #f0f1f4;
   flex-wrap: wrap;
 }
+
 .linkRow:last-child { border-bottom: none; }
 
 .linkDot {
@@ -68,6 +105,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Sora', sans-serif;
   font-size: 12px;
   font-weight: 800;
   color: #fff;
@@ -75,23 +113,42 @@
 }
 
 .linkStudent { min-width: 120px; }
-.linkName { font-weight: 700; font-size: 14px; }
-.linkAdm  { font-size: 11px; color: #8892aa; margin-top: 2px; }
 
-.linkChips { display: flex; gap: 5px; flex-wrap: wrap; flex: 1; }
+.linkName {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+}
+
+.linkAdm {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 2px;
+}
+
+.linkChips {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
 .chip {
-  background: #f0f4ff;
-  border-radius: 50px;
-  padding: 2px 9px;
+  background: #e8f0fb;
+  border-radius: 100px;
+  padding: 2px 10px;
+  font-family: 'DM Sans', sans-serif;
   font-size: 11px;
   font-weight: 600;
-  color: #0f2b5b;
+  color: #1e3a5f;
 }
 
 .linkUrl {
   flex: 2;
   font-size: 11px;
-  color: #a0aec0;
+  color: #9ca3af;
   font-family: monospace;
   white-space: nowrap;
   overflow: hidden;
@@ -99,14 +156,22 @@
   max-width: 220px;
 }
 
-.linkActions { display: flex; gap: 6px; flex-shrink: 0; flex-wrap: wrap; }
+.linkActions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
 
+/* ── Responsive ──────────────────────────────────── */
 @media (max-width: 700px) {
   .banner { padding: 24px 16px; }
   .linkUrl { display: none; }
   .linkChips { display: none; }
   .linkRow { gap: 8px; }
 }
+
 @media (max-width: 480px) {
   .linkActions { width: 100%; justify-content: flex-start; }
+  .bulkRow { flex-direction: column; align-items: flex-start; }
 }
