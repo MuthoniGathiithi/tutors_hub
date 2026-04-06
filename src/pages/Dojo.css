@@ -32,15 +32,15 @@
 
 .dojo-list-title {
   font-family: 'Sora', sans-serif;
-  font-size: clamp(24px, 3vw, 32px);
+  font-size: clamp(26px, 4vw, 40px);
   font-weight: 800;
-  color: var(--ink);
+  color: #0f1117;
   letter-spacing: -0.03em;
   margin-bottom: 8px;
 }
 
 .dojo-list-sub {
-  color: var(--ink3);
+  color: #6b7280;
   font-size: 15px;
   font-family: 'DM Sans', sans-serif;
 }

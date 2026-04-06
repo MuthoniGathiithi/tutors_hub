@@ -13,7 +13,7 @@
 .pageHead h1 {
   font-family: 'Sora', sans-serif;
   color: #0f1117;
-  font-size: clamp(24px, 3vw, 32px);
+  font-size: clamp(26px, 4vw, 40px);
   margin-bottom: 10px;
   font-weight: 800;
   letter-spacing: -0.03em;
