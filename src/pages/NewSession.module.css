@@ -2,9 +2,9 @@
 
 /* ── Page container ──────────────────────────────── */
 .container {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 48px 24px 80px;
+  padding: 40px 32px 80px;
 }
 
 /* ── Page head ───────────────────────────────────── */

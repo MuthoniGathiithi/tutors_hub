@@ -23,9 +23,9 @@
 
 /* ── List page ───────────────────────────────────── */
 .dojo-list-wrap {
-  max-width: 920px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 40px 24px 80px;
+  padding: 40px 32px 80px;
 }
 
 .dojo-list-head { margin-bottom: 32px; }
@@ -53,9 +53,9 @@
 
 /* ── Form page ───────────────────────────────────── */
 .dojo-form-page {
-  max-width: 800px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 40px 24px 80px;
+  padding: 40px 32px 80px;
 }
 
 .dojo-form-page-head { margin-bottom: 36px; }
@@ -358,9 +358,9 @@
 
 /* ── Detail body ─────────────────────────────────── */
 .dojo-detail-body {
-  max-width: 920px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 28px 24px 16px;
+  padding: 40px 32px 24px;
 }
 
 /* ── Lesson item (teacher detail view) ───────────── */
