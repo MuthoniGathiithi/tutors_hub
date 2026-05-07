@@ -6,11 +6,7 @@ export function Header({ right }) {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
-        <div className={styles.logoIcon} />
-        <div>
-          <div className={styles.logoName}>Tutors Hub</div>
-          <div className={styles.logoSub}>Tutor Portal</div>
-        </div>
+        <div className={styles.logoName}>Tutors Hub</div>
       </div>
       {right && <div>{right}</div>}
     </header>

@@ -36,9 +36,11 @@
 .logoName {
   font-family: 'Instrument Serif', serif;
   font-size: 19px;
-  font-weight: 400;
+  font-weight: 700;
   color: var(--navy);
   letter-spacing: -0.01em;
+  padding-left: 12px;
+  border-left: 3px solid var(--navy);
 }
 
 .btn {
