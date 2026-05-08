@@ -119,7 +119,7 @@ function ParentView({ studentId }) {
                 </div>
                 <div>
                   <div className="dojo-lc-date">{fmtDate(l.date)}</div>
-                  {l.time && <div className="dojo-lc-time">{l.time}</div>}
+                  {l.time && <div className="dojo-lc-time">Time: {l.time}</div>}
                 </div>
               </div>
               {l.tutor && (
@@ -129,11 +129,9 @@ function ParentView({ studentId }) {
               )}
             </div>
 
-            <div className="dojo-lc-subject-row">
-              <span className="dojo-lc-subject-badge" style={{ background: color.bg, color: '#fff' }}>{l.subject}</span>
-              <span className="dojo-lc-topic" style={{ color: color.bg }}>{l.topic}</span>
-              {l.subtopic && <span className="dojo-lc-subtopic">/ {l.subtopic}</span>}
-            </div>
+            <LcRow label="Subject" val={l.subject} />
+            <LcRow label="Topic" val={l.topic} />
+            {l.subtopic && <LcRow label="Sub-topic" val={l.subtopic} />}
 
             {l.book     && <LcRow label="Book / Reference" val={l.book} />}
             {l.page     && <LcRow label="Page(s)"          val={l.page} />}
@@ -495,7 +493,8 @@ export default function Dojo() {
               <div key={l.id} className="dojo-lesson-item" style={{ borderLeftColor: color.accent }}>
                 <div className="dojo-li-header">
                   <div>
-                    <div className="dojo-li-date">{fmtDate(l.date)} {l.time && `at ${l.time}`}</div>
+                    <div className="dojo-li-date">{fmtDate(l.date)}</div>
+                    {l.time && <div className="dojo-li-tutor">Time: {l.time}</div>}
                     {l.tutor && <div className="dojo-li-tutor">Tutor: {l.tutor}</div>}
                   </div>
                   <div className="dojo-li-actions">
@@ -504,12 +503,9 @@ export default function Dojo() {
                   </div>
                 </div>
 
-                <div className="dojo-li-subject-row">
-                  <span className="dojo-li-subject-badge" style={{ background: color.bg, color: '#fff' }}>{l.subject}</span>
-                  <span className="dojo-li-topic">{l.topic}</span>
-                  {l.subtopic && <span className="dojo-li-subtopic">/ {l.subtopic}</span>}
-                </div>
-
+                <LiRow label="Subject" val={l.subject} />
+                <LiRow label="Topic" val={l.topic} />
+                {l.subtopic && <LiRow label="Sub-topic" val={l.subtopic} />}
                 {l.book && <LiRow label="Book" val={l.book} />}
                 {l.page && <LiRow label="Pages" val={l.page} />}
                 {l.workDone && <LiRow label="Content Taught" val={l.workDone} />}
