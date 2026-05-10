@@ -114,7 +114,7 @@ export default function Dashboard() {
             )}
           </div>
           <button className={styles.sectionLink} onClick={() => navigate('/dojo')}>
-            Open Dojo →
+            View Students →
           </button>
         </div>
 
