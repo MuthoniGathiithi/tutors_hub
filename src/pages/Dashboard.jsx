@@ -1,27 +1,18 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Header, Btn, Card, CardBody, Badge, Empty, Toast } from '../components/UI'
+import { Toast } from '../components/UI'
 import styles from './Dashboard.module.css'
 
 const STUDENTS_KEY = 'lh_students'
 const LESSONS_KEY = 'lh_lessons'
 const load = (key) => {
-  try {
-    return JSON.parse(localStorage.getItem(key) || '[]')
-  } catch {
-    return []
-  }
+  try { return JSON.parse(localStorage.getItem(key) || '[]') } catch { return [] }
 }
 
-const PALETTES = [
-  { bg: '#1e3a5f' },
-  { bg: '#059669' },
-  { bg: '#d97706' },
-  { bg: '#7c3aed' },
-  { bg: '#0e7490' },
-  { bg: '#be185d' },
+const COLORS = [
+  '#1a2e4a', '#16a34a', '#b45309', '#7c3aed', '#0e7490', '#be185d',
 ]
-const getP = (i) => PALETTES[i % PALETTES.length]
+const getColor = (i) => COLORS[i % COLORS.length]
 
 export default function Dashboard() {
   const navigate = useNavigate()
@@ -41,12 +32,16 @@ export default function Dashboard() {
     return Number.isFinite(t) && t > m ? t : m
   }, 0)
 
+  const lastDate = lastTs
+    ? new Date(lastTs).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })
+    : '—'
+
   const getLink = (sid) =>
     window.location.origin + window.location.pathname.split('#')[0] + '#/dojo/' + sid
 
   const copyLink = (sid, name) => {
     try { navigator.clipboard.writeText(getLink(sid)) } catch {}
-    setToast(`Link for ${name} copied!`)
+    setToast(`Link copied for ${name}`)
     setTimeout(() => setToast(''), 2300)
   }
 
@@ -57,31 +52,35 @@ export default function Dashboard() {
   }
 
   return (
-    <div>
-      {/* HEADER */}
-      <div className={styles.header}>
-        <span className={styles.brandName}>Tutors Hub</span>
-        <div className={styles.headerRight}>
+    <div className={styles.root}>
+
+      {/* NAV */}
+      <nav className={styles.nav}>
+        <span className={styles.brand}>Tutors Hub</span>
+        <div className={styles.navLinks}>
           <button className={styles.navLink} onClick={() => navigate('/')}>Dashboard</button>
           <button className={styles.navLink} onClick={() => navigate('/lessons')}>Lessons</button>
           <button className={styles.navLink} onClick={() => navigate('/reports')}>Reports</button>
-          <button className={styles.btnCreate} onClick={() => navigate('/dojo?create=1')}>+ Create Student</button>
+          <button className={styles.navCta} onClick={() => navigate('/dojo?create=1')}>New Student</button>
         </div>
-      </div>
+      </nav>
 
-      {/* HERO */}
-      <div className={styles.hero}>
-        <h1 className={styles.heroTitle}>Welcome back, <span>Tutor</span></h1>
-        <p className={styles.heroSub}>
-          Track lessons, share progress reports, and keep parents in the loop — all in one place.
-        </p>
-        <div className={styles.heroNav}>
-          <button className={`${styles.heroNavLink} ${styles.primary}`} onClick={() => navigate('/dojo?create=1')}>
-            + Create Student
-          </button>
-          <button className={styles.heroNavLink} onClick={() => navigate('/dojo')}>Open Dojo</button>
-          <button className={styles.heroNavLink} onClick={() => navigate('/lessons')}>View Lessons</button>
-          <button className={styles.heroNavLink} onClick={() => navigate('/reports')}>Reports</button>
+      {/* PAGE HEADER */}
+      <div className={styles.pageHeader}>
+        <div className={styles.pageHeaderInner}>
+          <h1 className={styles.pageTitle}>Good morning, Tutor</h1>
+          <p className={styles.pageSub}>Here's what's happening across your students.</p>
+          <div className={styles.pageActions}>
+            <button className={styles.actionPrimary} onClick={() => navigate('/dojo?create=1')}>
+              + New Student
+            </button>
+            <button className={styles.actionSecondary} onClick={() => navigate('/lessons')}>
+              Log a Lesson
+            </button>
+            <button className={styles.actionSecondary} onClick={() => navigate('/reports')}>
+              Reports
+            </button>
+          </div>
         </div>
       </div>
 
@@ -89,71 +88,95 @@ export default function Dashboard() {
       <div className={styles.main}>
 
         {/* STATS */}
-        <div className={styles.statsGrid}>
-          <div className={styles.statCard}>
-            <div className={styles.statNum}>{students.length}</div>
-            <div className={styles.statLbl}>Students</div>
+        <div className={styles.statsRow}>
+          <div className={styles.stat}>
+            <div className={styles.statValue}>{students.length}</div>
+            <div className={styles.statLabel}>Students</div>
           </div>
-          <div className={styles.statCard}>
-            <div className={styles.statNum}>{lessons.length}</div>
-            <div className={styles.statLbl}>Lessons Logged</div>
+          <div className={styles.statDivider} />
+          <div className={styles.stat}>
+            <div className={styles.statValue}>{lessons.length}</div>
+            <div className={styles.statLabel}>Lessons Logged</div>
           </div>
-          <div className={styles.statCard}>
-            <div className={styles.statNum}>{lastTs ? new Date(lastTs).getDate() : '—'}</div>
-            <div className={styles.statLbl}>Last Activity</div>
+          <div className={styles.statDivider} />
+          <div className={styles.stat}>
+            <div className={styles.statValue}>{lastDate}</div>
+            <div className={styles.statLabel}>Last Session</div>
           </div>
         </div>
 
         {/* SECTION HEAD */}
-        <div className={styles.sectionHead}>
-          <div style={{ display: 'flex', alignItems: 'baseline' }}>
-            <span className={styles.sectionTitle}>Your Students</span>
+        <div className={styles.sectionRow}>
+          <div>
+            <span className={styles.sectionTitle}>Students</span>
             {students.length > 0 && (
-              <span className={styles.sectionMeta}> · {students.length} enrolled</span>
+              <span className={styles.sectionCount}>{students.length}</span>
             )}
           </div>
-          <button className={styles.btnOutline} onClick={() => navigate('/dojo')}>Open Dojo</button>
+          <button className={styles.sectionLink} onClick={() => navigate('/dojo')}>
+            Open Dojo →
+          </button>
         </div>
 
         {/* STUDENTS */}
         {students.length === 0 ? (
-          <div className={styles.emptyCard}>
+          <div className={styles.emptyState}>
             <div className={styles.emptyTitle}>No students yet</div>
             <div className={styles.emptySub}>
-              Create a student to start tracking lessons<br />and sharing progress with parents.
+              Create your first student profile to start tracking lessons and sharing progress with parents.
             </div>
-            <button className={styles.btnCreate} onClick={() => navigate('/dojo?create=1')}>
-              + Create Student
+            <button className={styles.actionPrimary} onClick={() => navigate('/dojo?create=1')}>
+              + New Student
             </button>
           </div>
         ) : (
-          <div className={styles.studentsGrid}>
+          <div className={styles.grid}>
             {students.map((s, idx) => {
-              const p = getP(idx)
+              const color = getColor(idx)
               const count = countByStudent[s.id] || 0
               const init = s.name?.charAt(0)?.toUpperCase() || '?'
               return (
-                <div key={s.id} className={styles.studentCard}>
-                  <div className={styles.studentCardAccent} style={{ background: p.bg }} />
-                  <div className={styles.studentTop}>
-                    <div className={styles.avatar} style={{ background: p.bg }}>{init}</div>
-                    <div className={styles.studentMeta}>
-                      <div className={styles.studentName}>{s.name || 'Unnamed'}</div>
-                      <div className={styles.badges}>
-                        {s.curriculum && <span className={`${styles.badge} ${styles.badgeGray}`}>{s.curriculum}</span>}
-                        {s.grade && <span className={`${styles.badge} ${styles.badgeNavy}`}>{(s.yearGradeLabel || 'Grade')} {s.grade}</span>}
-                        {!s.curriculum && !s.grade && <span className={styles.muted}>No class set</span>}
+                <div key={s.id} className={styles.card}>
+                  <div className={styles.cardStripe} style={{ background: color }} />
+                  <div className={styles.cardBody}>
+                    <div className={styles.cardTop}>
+                      <div className={styles.avatar} style={{ background: color }}>
+                        {init}
+                      </div>
+                      <div className={styles.studentInfo}>
+                        <div className={styles.studentName}>{s.name || 'Unnamed'}</div>
+                        <div className={styles.studentTags}>
+                          {s.curriculum && (
+                            <span className={styles.tag}>{s.curriculum}</span>
+                          )}
+                          {s.grade && (
+                            <span className={styles.tag}>
+                              {(s.yearGradeLabel || 'Grade')} {s.grade}
+                            </span>
+                          )}
+                          {!s.curriculum && !s.grade && (
+                            <span className={styles.tagMuted}>No class set</span>
+                          )}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className={styles.studentBottom}>
-                    <div className={styles.lessonCount}>
-                      <span className={`${styles.lessonDot} ${count > 0 ? styles.active : ''}`} />
-                      <span className={styles.muted}>{count} lesson{count !== 1 ? 's' : ''}</span>
-                    </div>
-                    <div className={styles.studentActions}>
-                      <button className={styles.btnXs} onClick={() => copyLink(s.id, s.name)}>Copy link</button>
-                      <button className={styles.btnXsFilled} onClick={() => openParentView(s.id)}>Preview</button>
+                    <div className={styles.cardFooter}>
+                      <span className={styles.lessonCount}>
+                        <span className={`${styles.dot} ${count > 0 ? styles.dotActive : ''}`} />
+                        {count} lesson{count !== 1 ? 's' : ''}
+                      </span>
+                      <div className={styles.cardActions}>
+                        <button className={styles.btnSm} onClick={() => copyLink(s.id, s.name)}>
+                          Copy link
+                        </button>
+                        <button
+                          className={styles.btnSmFilled}
+                          style={{ background: color }}
+                          onClick={() => openParentView(s.id)}
+                        >
+                          Preview
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
