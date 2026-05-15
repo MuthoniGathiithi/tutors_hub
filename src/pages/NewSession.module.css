@@ -1,28 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
 
-/* ── Page container ──────────────────────────────── */
 .container {
-  max-width: 1100px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 40px 32px 80px;
+  padding: 36px 32px 80px;
 }
 
-/* ── Page head ───────────────────────────────────── */
-.pageHead { margin-bottom: 40px; }
+.pageHead { margin-bottom: 36px; }
 
 .pageHead h1 {
-  font-family: 'Sora', sans-serif;
-  color: #0f1117;
-  font-size: clamp(26px, 4vw, 40px);
-  margin-bottom: 10px;
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-family: 'Instrument Serif', serif;
+  color: #111827;
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
 }
 
 .pageHead p {
   font-family: 'DM Sans', sans-serif;
   color: #6b7280;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.6;
 }
 
@@ -30,12 +28,12 @@
 .addRow {
   display: grid;
   grid-template-columns: 1fr 1fr auto;
-  gap: 16px;
-  padding: 24px;
-  background: #f7f8fa;
-  border-radius: 12px;
+  gap: 14px;
+  padding: 20px;
+  background: #f9fafb;
+  border-radius: 9px;
   border: 1px solid #e5e7eb;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   align-items: end;
 }
 
@@ -43,19 +41,19 @@
 
 .noStudents {
   text-align: center;
-  padding: 48px 32px;
+  padding: 44px 24px;
   font-family: 'DM Sans', sans-serif;
   color: #9ca3af;
-  font-size: 15px;
-  background: #f7f8fa;
-  border-radius: 12px;
-  border: 1.5px dashed #d1d5db;
+  font-size: 14px;
+  background: #f9fafb;
+  border-radius: 9px;
+  border: 1px dashed #d1d5db;
 }
 
 /* ── Table ───────────────────────────────────────── */
 .tableWrap {
   overflow-x: auto;
-  border-radius: 12px;
+  border-radius: 9px;
   border: 1px solid #e5e7eb;
 }
 
@@ -63,104 +61,104 @@
   width: 100%;
   border-collapse: collapse;
   font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
 }
 
-.table thead { background: #1e3a5f; }
+.table thead { background: #1a2e4a; }
 
 .table th {
-  padding: 14px 14px;
+  padding: 12px 14px;
   text-align: left;
   font-family: 'DM Sans', sans-serif;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.07em;
+  color: rgba(255,255,255,0.65);
   white-space: nowrap;
 }
 
 .table td {
-  padding: 12px 14px;
-  border-top: 1px solid #f0f1f4;
+  padding: 10px 14px;
+  border-top: 1px solid #f3f4f6;
   vertical-align: middle;
 }
 
-.table tr:hover td { background: #f7f8fa; }
+.table tr:hover td { background: #f9fafb; }
 
 .tdNum {
   font-family: 'DM Sans', sans-serif;
   color: #9ca3af;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   text-align: center;
-  width: 36px;
+  width: 32px;
 }
 
 .tdName {
-  font-family: 'Sora', sans-serif;
-  font-weight: 700;
-  color: #0f1117;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  color: #111827;
   white-space: nowrap;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 /* ── Table inputs ────────────────────────────────── */
 .tableInput {
-  border: 1.5px solid #e5e7eb;
+  border: 1px solid #e5e7eb;
   background: #fff;
-  padding: 7px 10px;
-  border-radius: 7px;
+  padding: 6px 9px;
+  border-radius: 6px;
   font-family: 'DM Sans', sans-serif;
   font-size: 13px;
-  color: #0f1117;
+  color: #111827;
   outline: none;
   width: 100%;
-  min-width: 80px;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  min-width: 72px;
+  transition: border-color 0.12s, box-shadow 0.12s;
 }
 
 .tableInput:focus {
-  border-color: #1e3a5f;
-  box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1);
+  border-color: #1a2e4a;
+  box-shadow: 0 0 0 3px rgba(26, 46, 74, 0.1);
 }
 
 .tableInput::placeholder { color: #d1d5db; }
 
 .tableSelect {
-  border: 1.5px solid #e5e7eb;
+  border: 1px solid #e5e7eb;
   background: #fff;
-  padding: 7px 28px 7px 10px;
-  border-radius: 7px;
+  padding: 6px 28px 6px 9px;
+  border-radius: 6px;
   font-family: 'DM Sans', sans-serif;
   font-size: 13px;
-  color: #0f1117;
+  color: #111827;
   outline: none;
   cursor: pointer;
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M5 7L1 2h8z' fill='%231e3a5f'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M5 7L1 2h8z' fill='%236b7280'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 10px center;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  background-position: right 9px center;
+  transition: border-color 0.12s;
 }
 
 .tableSelect:focus {
-  border-color: #1e3a5f;
-  box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1);
+  border-color: #1a2e4a;
+  box-shadow: 0 0 0 3px rgba(26, 46, 74, 0.1);
 }
 
 /* ── Remove btn ──────────────────────────────────── */
 .removeBtn {
   background: #fff;
-  border: 1.5px solid #e5e7eb;
+  border: 1px solid #e5e7eb;
   cursor: pointer;
-  color: #6b7280;
+  color: #9ca3af;
   font-family: 'DM Sans', sans-serif;
   font-size: 12px;
-  font-weight: 600;
-  padding: 6px 14px;
-  border-radius: 7px;
-  transition: all 0.15s;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 6px;
+  transition: all 0.12s;
   white-space: nowrap;
 }
 
@@ -173,19 +171,19 @@
 /* ── Actions ─────────────────────────────────────── */
 .actions {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   justify-content: flex-end;
 }
 
 /* ── Responsive ──────────────────────────────────── */
 @media (max-width: 768px) {
-  .container { padding: 32px 16px 60px; }
-  .addRow { grid-template-columns: 1fr; gap: 12px; }
+  .container { padding: 28px 16px 60px; }
+  .addRow { grid-template-columns: 1fr; gap: 10px; }
   .addBtnWrap { width: 100%; }
-  .actions { flex-direction: column-reverse; gap: 12px; }
+  .actions { flex-direction: column-reverse; gap: 10px; }
 }
 
 @media (max-width: 600px) {
-  .pageHead { margin-bottom: 28px; }
+  .pageHead { margin-bottom: 24px; }
   .pageHead h1 { font-size: 22px; }
 }
