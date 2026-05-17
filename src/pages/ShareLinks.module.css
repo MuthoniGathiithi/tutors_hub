@@ -1,53 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
 
 /* ── Banner ──────────────────────────────────────── */
 .banner {
-  background: #1e3a5f;
+  background: #1a2e4a;
   color: #fff;
-  padding: 48px 40px 44px;
+  padding: 40px 32px 36px;
 }
 
 .bannerInner {
-  max-width: 900px;
+  max-width: 1080px;
   margin: 0 auto;
 }
 
 .bannerTag {
   display: inline-block;
-  background: rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.75);
   font-family: 'DM Sans', sans-serif;
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 4px 12px;
+  padding: 3px 10px;
   border-radius: 100px;
-  margin-bottom: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  margin-bottom: 10px;
+  border: 1px solid rgba(255,255,255,0.14);
 }
 
 .bannerTitle {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Instrument Serif', serif;
   font-size: clamp(18px, 3vw, 28px);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  margin-bottom: 12px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
   color: #fff;
 }
 
 .bannerMeta {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px 16px;
+  gap: 4px 14px;
   font-family: 'DM Sans', sans-serif;
   font-size: 13px;
-  opacity: 0.65;
+  opacity: 0.55;
 }
 
 .bannerMeta span::before {
   content: '·';
-  margin-right: 16px;
+  margin-right: 14px;
   opacity: 0.4;
 }
 
@@ -58,9 +58,9 @@
 
 /* ── Container ───────────────────────────────────── */
 .container {
-  max-width: 1100px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 40px 32px 80px;
+  padding: 36px 32px 80px;
 }
 
 /* ── Bulk row ────────────────────────────────────── */
@@ -68,55 +68,55 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
 .bulkInfo {
   font-family: 'DM Sans', sans-serif;
   font-size: 14px;
-  color: #3d4250;
+  color: #374151;
 }
 
 .bulkInfo strong {
-  font-family: 'Sora', sans-serif;
-  color: #0f1117;
-  font-size: 20px;
-  font-weight: 800;
-  margin-right: 4px;
+  font-family: 'Instrument Serif', serif;
+  color: #111827;
+  font-size: 22px;
+  font-weight: 400;
+  margin-right: 3px;
 }
 
 /* ── Link rows ───────────────────────────────────── */
 .linkRow {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 13px 0;
-  border-bottom: 1px solid #f0f1f4;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f3f4f6;
   flex-wrap: wrap;
 }
 
 .linkRow:last-child { border-bottom: none; }
 
 .linkDot {
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Sora', sans-serif;
-  font-size: 12px;
-  font-weight: 800;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
   color: #fff;
   flex-shrink: 0;
 }
 
-.linkStudent { min-width: 120px; }
+.linkStudent { min-width: 110px; }
 
 .linkName {
-  font-family: 'Sora', sans-serif;
-  font-weight: 700;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
   font-size: 14px;
   letter-spacing: -0.01em;
 }
@@ -130,19 +130,20 @@
 
 .linkChips {
   display: flex;
-  gap: 5px;
+  gap: 4px;
   flex-wrap: wrap;
   flex: 1;
 }
 
 .chip {
-  background: #e8f0fb;
-  border-radius: 100px;
-  padding: 2px 10px;
+  background: #f3f4f6;
+  border-radius: 4px;
+  padding: 2px 8px;
   font-family: 'DM Sans', sans-serif;
   font-size: 11px;
-  font-weight: 600;
-  color: #1e3a5f;
+  font-weight: 500;
+  color: #374151;
+  border: 1px solid #e5e7eb;
 }
 
 .linkUrl {
@@ -153,12 +154,12 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 220px;
+  max-width: 200px;
 }
 
 .linkActions {
   display: flex;
-  gap: 6px;
+  gap: 5px;
   flex-shrink: 0;
   flex-wrap: wrap;
 }
@@ -166,9 +167,10 @@
 /* ── Responsive ──────────────────────────────────── */
 @media (max-width: 700px) {
   .banner { padding: 24px 16px; }
+  .container { padding: 24px 16px 60px; }
   .linkUrl { display: none; }
   .linkChips { display: none; }
-  .linkRow { gap: 8px; }
+  .linkRow { gap: 6px; }
 }
 
 @media (max-width: 480px) {
