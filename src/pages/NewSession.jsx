@@ -171,11 +171,11 @@ export default function NewSession() {
               <FormGroup label="Topic / Unit" required>
                 <Input value={form.topic} onChange={e => set('topic', e.target.value)} placeholder="e.g. Fractions" />
               </FormGroup>
-              <FormGroup label="Sub-topic">
-                <Input value={form.subtopic} onChange={e => set('subtopic', e.target.value)} placeholder="e.g. Adding fractions with unlike denominators" />
-              </FormGroup>
               <FormGroup label="Book / Reference Material">
                 <Input value={form.book || ''} onChange={e => set('book', e.target.value)} placeholder="e.g. Oxford Primary Maths Book 4" />
+              </FormGroup>
+              <FormGroup label="Sub-topic">
+                <Input value={form.subtopic} onChange={e => set('subtopic', e.target.value)} placeholder="e.g. Adding fractions with unlike denominators" />
               </FormGroup>
               <FormGroup label="Page(s) / Reference">
                 <Input value={form.page} onChange={e => set('page', e.target.value)} placeholder="e.g. Pg 34–38  |  Handout 3" />

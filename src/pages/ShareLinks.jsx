@@ -152,9 +152,6 @@ export default function ShareLinks() {
                     <Btn variant="whatsapp" size="xs" onClick={() => shareWhatsApp(s)}>
                       WhatsApp
                     </Btn>
-                    <Btn variant="ghost" size="xs" onClick={() => navigate(`/report/${sessionId}/${s.id}`)}>
-                      Preview
-                    </Btn>
                     <Btn variant="outline" size="xs" onClick={() => printReport(s.id)}>
                       Print
                     </Btn>

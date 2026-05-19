@@ -20,7 +20,7 @@
 .pageHead p {
   font-family: 'DM Sans', sans-serif;
   color: #6b7280;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
 }
 
@@ -44,7 +44,7 @@
   padding: 44px 24px;
   font-family: 'DM Sans', sans-serif;
   color: #9ca3af;
-  font-size: 14px;
+  font-size: 15px;
   background: #f9fafb;
   border-radius: 9px;
   border: 1px dashed #d1d5db;
@@ -61,7 +61,7 @@
   width: 100%;
   border-collapse: collapse;
   font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .table thead { background: #1a2e4a; }
@@ -70,7 +70,7 @@
   padding: 12px 14px;
   text-align: left;
   font-family: 'DM Sans', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.07em;
@@ -79,7 +79,7 @@
 }
 
 .table td {
-  padding: 10px 14px;
+  padding: 11px 14px;
   border-top: 1px solid #f3f4f6;
   vertical-align: middle;
 }
@@ -89,7 +89,7 @@
 .tdNum {
   font-family: 'DM Sans', sans-serif;
   color: #9ca3af;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   text-align: center;
   width: 32px;
@@ -100,17 +100,17 @@
   font-weight: 600;
   color: #111827;
   white-space: nowrap;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 /* ── Table inputs ────────────────────────────────── */
 .tableInput {
   border: 1px solid #e5e7eb;
   background: #fff;
-  padding: 6px 9px;
+  padding: 7px 10px;
   border-radius: 6px;
   font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   color: #111827;
   outline: none;
   width: 100%;
@@ -128,10 +128,10 @@
 .tableSelect {
   border: 1px solid #e5e7eb;
   background: #fff;
-  padding: 6px 28px 6px 9px;
+  padding: 7px 28px 7px 10px;
   border-radius: 6px;
   font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   color: #111827;
   outline: none;
   cursor: pointer;
@@ -154,9 +154,9 @@
   cursor: pointer;
   color: #9ca3af;
   font-family: 'DM Sans', sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
-  padding: 5px 12px;
+  padding: 6px 13px;
   border-radius: 6px;
   transition: all 0.12s;
   white-space: nowrap;
@@ -176,14 +176,47 @@
 }
 
 /* ── Responsive ──────────────────────────────────── */
+@media (max-width: 1024px) {
+  .tableInput { font-size: 13px; padding: 6px 9px; }
+  .tableSelect { font-size: 13px; padding: 6px 28px 6px 9px; }
+}
+
 @media (max-width: 768px) {
-  .container { padding: 28px 16px 60px; }
-  .addRow { grid-template-columns: 1fr; gap: 10px; }
+  .container { padding: 24px 16px 60px; }
+  .pageHead { margin-bottom: 28px; }
+  .pageHead h1 { font-size: clamp(20px, 3.5vw, 32px); }
+  .pageHead p { font-size: 15px; }
+  .addRow {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 16px;
+  }
   .addBtnWrap { width: 100%; }
+  .tableInput { font-size: 13px; padding: 6px 9px; }
+  .tableSelect { font-size: 13px; padding: 6px 28px 6px 9px; }
+  .tdNum { font-size: 12px; }
+  .tdName { font-size: 13px; }
+  .removeBtn { font-size: 12px; padding: 5px 11px; }
   .actions { flex-direction: column-reverse; gap: 10px; }
 }
 
 @media (max-width: 600px) {
-  .pageHead { margin-bottom: 24px; }
-  .pageHead h1 { font-size: 22px; }
+  .container { padding: 20px 12px 48px; }
+  .pageHead { margin-bottom: 20px; }
+  .pageHead h1 { font-size: clamp(18px, 3vw, 28px); }
+  .pageHead p { font-size: 14px; }
+  .addRow {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 14px;
+  }
+  .noStudents { padding: 36px 16px; font-size: 13px; }
+  .table { font-size: 12px; }
+  .table th { font-size: 9px; padding: 10px 10px; }
+  .table td { padding: 9px 10px; }
+  .tdNum { font-size: 11px; }
+  .tdName { font-size: 12px; }
+  .tableInput { font-size: 12px; padding: 5px 8px; }
+  .tableSelect { font-size: 12px; padding: 5px 25px 5px 8px; }
+  .removeBtn { font-size: 11px; padding: 4px 10px; }
 }

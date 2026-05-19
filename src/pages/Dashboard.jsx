@@ -26,16 +26,6 @@ export default function Dashboard() {
     return a
   }, {})
 
-  const lastTs = lessons.reduce((m, l) => {
-    if (!l?.date) return m
-    const t = new Date(l.date + 'T00:00:00').getTime()
-    return Number.isFinite(t) && t > m ? t : m
-  }, 0)
-
-  const lastDate = lastTs
-    ? new Date(lastTs).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })
-    : '—'
-
   const getLink = (sid) =>
     window.location.origin + window.location.pathname.split('#')[0] + '#/dojo/' + sid
 
@@ -43,12 +33,6 @@ export default function Dashboard() {
     try { navigator.clipboard.writeText(getLink(sid)) } catch {}
     setToast(`Link copied for ${name}`)
     setTimeout(() => setToast(''), 2300)
-  }
-
-  const openParentView = (sid) => {
-    const url = window.location.origin + window.location.pathname.split('#')[0] + '#/dojo/' + sid
-    const win = window.open(url, '_blank')
-    if (win) win.focus()
   }
 
   return (
@@ -59,8 +43,7 @@ export default function Dashboard() {
         <span className={styles.brand}>Tutors Hub</span>
         <div className={styles.navLinks}>
           <button className={styles.navLink} onClick={() => navigate('/')}>Dashboard</button>
-          <button className={styles.navLink} onClick={() => navigate('/lessons')}>Lessons</button>
-          <button className={styles.navLink} onClick={() => navigate('/reports')}>Reports</button>
+          <button className={styles.navLink} onClick={() => navigate('/dojo')}>Students</button>
           <button className={styles.navCta} onClick={() => navigate('/dojo?create=1')}>New Student</button>
         </div>
       </nav>
@@ -73,12 +56,6 @@ export default function Dashboard() {
           <div className={styles.pageActions}>
             <button className={styles.actionPrimary} onClick={() => navigate('/dojo?create=1')}>
               + New Student
-            </button>
-            <button className={styles.actionSecondary} onClick={() => navigate('/lessons')}>
-              Log a Lesson
-            </button>
-            <button className={styles.actionSecondary} onClick={() => navigate('/reports')}>
-              Reports
             </button>
           </div>
         </div>
@@ -97,11 +74,6 @@ export default function Dashboard() {
           <div className={styles.stat}>
             <div className={styles.statValue}>{lessons.length}</div>
             <div className={styles.statLabel}>Lessons Logged</div>
-          </div>
-          <div className={styles.statDivider} />
-          <div className={styles.stat}>
-            <div className={styles.statValue}>{lastDate}</div>
-            <div className={styles.statLabel}>Last Session</div>
           </div>
         </div>
 
@@ -134,14 +106,12 @@ export default function Dashboard() {
             {students.map((s, idx) => {
               const color = getColor(idx)
               const count = countByStudent[s.id] || 0
-              const init = s.name?.charAt(0)?.toUpperCase() || '?'
               return (
                 <div key={s.id} className={styles.card}>
                   <div className={styles.cardStripe} style={{ background: color }} />
                   <div className={styles.cardBody}>
                     <div className={styles.cardTop}>
                       <div className={styles.avatar} style={{ background: color }}>
-                        {init}
                       </div>
                       <div className={styles.studentInfo}>
                         <div className={styles.studentName}>{s.name || 'Unnamed'}</div>
@@ -168,13 +138,6 @@ export default function Dashboard() {
                       <div className={styles.cardActions}>
                         <button className={styles.btnSm} onClick={() => copyLink(s.id, s.name)}>
                           Copy link
-                        </button>
-                        <button
-                          className={styles.btnSmFilled}
-                          style={{ background: color }}
-                          onClick={() => openParentView(s.id)}
-                        >
-                          Preview
                         </button>
                       </div>
                     </div>

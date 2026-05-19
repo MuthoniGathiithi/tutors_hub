@@ -95,7 +95,6 @@ export default function ParentReport() {
         <div className={styles.idCard}>
           <div className={styles.idTop} style={{ background: color.bg }}>
             <div className={styles.idAvatar} style={{ background: color.accent, color: color.bg }}>
-              {student.name.charAt(0).toUpperCase()}
             </div>
             <div>
               <div className={styles.idName}>{student.name}</div>

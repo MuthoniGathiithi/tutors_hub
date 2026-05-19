@@ -40,9 +40,9 @@
 
 .headerSub {
   font-family: 'DM Sans', sans-serif;
-  font-size: 15px;
+  font-size: 17px;
   opacity: 0.75;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   font-weight: 500;
 }
 
@@ -52,17 +52,17 @@
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 5px;
   font-family: 'DM Sans', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 4px 12px;
-  margin-bottom: 10px;
+  padding: 5px 13px;
+  margin-bottom: 12px;
 }
 
 .headerDate {
   font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   opacity: 0.55;
   font-weight: 400;
 }
@@ -120,16 +120,16 @@
 
 .idName {
   font-family: 'Instrument Serif', serif;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 400;
   letter-spacing: -0.01em;
 }
 
 .idAdm {
   font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   opacity: 0.6;
-  margin-top: 3px;
+  margin-top: 4px;
 }
 
 .idStats {
@@ -143,8 +143,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 16px 12px;
-  gap: 4px;
+  padding: 18px 14px;
+  gap: 5px;
   border-right: 1px solid #e5e7eb;
 }
 
@@ -152,7 +152,7 @@
 
 .idStatLabel {
   font-family: 'DM Sans', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.07em;
@@ -161,7 +161,7 @@
 
 .idStatValue {
   font-family: 'Instrument Serif', serif;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 400;
   color: #111827;
   letter-spacing: -0.01em;
@@ -220,7 +220,7 @@
 
 .sectionTitle {
   font-family: 'DM Sans', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.09em;
@@ -236,7 +236,7 @@
 }
 
 .infoCell {
-  padding: 14px 20px;
+  padding: 16px 22px;
   border-right: 1px solid #e5e7eb;
   border-bottom: 1px solid #e5e7eb;
 }
@@ -245,17 +245,17 @@
 
 .infoCellLabel {
   font-family: 'DM Sans', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.07em;
   color: #9ca3af;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 
 .infoCellValue {
   font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   color: #111827;
   line-height: 1.5;
@@ -281,37 +281,37 @@
 
 .assignmentText {
   font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   color: #374151;
   line-height: 1.65;
 }
 
 .assignmentDue {
   font-family: 'DM Sans', sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
-  margin-top: 6px;
+  margin-top: 7px;
   opacity: 0.8;
 }
 
 /* ── Prose ───────────────────────────────────────── */
 .prose {
   font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.75;
   color: #374151;
-  padding: 16px 20px;
+  padding: 18px 22px;
   margin: 0;
 }
 
 /* ── Remarks quote ───────────────────────────────── */
 .remarksQuote {
   margin: 0;
-  padding: 16px 20px 16px 22px;
+  padding: 18px 22px 18px 24px;
   border-left: 3px solid;
   font-style: italic;
   font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.75;
   color: #374151;
   background: #f9fafb;
@@ -334,17 +334,17 @@
 
 .examCellLabel {
   font-family: 'DM Sans', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.07em;
   color: #9ca3af;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 
 .examCellValue {
   font-family: 'Instrument Serif', serif;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 400;
   color: #111827;
 }
@@ -357,24 +357,24 @@
   background: #fff;
   border-radius: 10px;
   border: 1px solid #e5e7eb;
-  padding: 20px 24px;
-  margin-bottom: 20px;
-  margin-top: 6px;
+  padding: 22px 26px;
+  margin-bottom: 22px;
+  margin-top: 8px;
 }
 
 .sigLabel {
   font-family: 'DM Sans', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.07em;
   color: #9ca3af;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 
 .sigName {
   font-family: 'Instrument Serif', serif;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 400;
   letter-spacing: -0.01em;
 }
@@ -383,7 +383,7 @@
 
 .sigBrand {
   font-family: 'Instrument Serif', serif;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 400;
   letter-spacing: -0.01em;
 }
@@ -394,9 +394,9 @@
 .printBtn {
   border: none;
   border-radius: 8px;
-  padding: 11px 36px;
+  padding: 12px 40px;
   font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: opacity 0.15s, transform 0.12s;
@@ -427,16 +427,16 @@
 
 .notFound h2 {
   font-family: 'DM Sans', sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   color: #111827;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   font-weight: 600;
 }
 
 .notFound p {
   font-family: 'DM Sans', sans-serif;
   color: #6b7280;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
 }
 
@@ -460,22 +460,71 @@
 @keyframes spin { to { transform: rotate(360deg); } }
 
 /* ── Responsive ──────────────────────────────────── */
-@media (max-width: 600px) {
-  .header { padding: 32px 16px 24px; }
-  .body { padding: 16px 14px 60px; }
-  .idTop { gap: 12px; padding: 18px; }
-  .idAvatar { width: 46px; height: 46px; font-size: 18px; }
-  .idName { font-size: 18px; }
+@media (max-width: 768px) {
+  .header { padding: 32px 20px 28px; }
+  .headerBrand { font-size: 15px; margin-bottom: 14px; }
+  .headerTitle { font-size: clamp(22px, 3vw, 32px); margin-bottom: 8px; }
+  .headerSub { font-size: 16px; }
+  .body { padding: 24px 16px 60px; }
+  .idTop { gap: 14px; padding: 20px; }
+  .idAvatar { width: 50px; height: 50px; font-size: 19px; }
+  .idName { font-size: 20px; }
+  .idAdm { font-size: 13px; }
+  .infoGrid { grid-template-columns: 1fr; }
+  .infoCell { border-right: none; padding: 14px 18px; }
+  .infoCellValue { font-size: 14px; }
+  .examGrid { grid-template-columns: 1fr 1fr; }
+  .assignmentText { font-size: 14px; }
+  .prose { font-size: 14px; padding: 14px 18px; }
+  .remarksQuote { font-size: 14px; padding: 14px 18px 14px 20px; }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
+  .header { padding: 24px 14px 20px; }
+  .headerBrand { font-size: 14px; margin-bottom: 10px; }
+  .headerTitle { font-size: clamp(20px, 2.5vw, 28px); margin-bottom: 6px; }
+  .headerSub { font-size: 15px; margin-bottom: 6px; }
+  .headerCurriculum { font-size: 10px; padding: 4px 11px; }
+  .headerDate { font-size: 13px; }
+  .headerAccentBar { height: 2px; }
+  .body { padding: 16px 12px 48px; }
+  .idCard { margin-bottom: 14px; }
+  .idTop { gap: 10px; padding: 16px; }
+  .idAvatar { width: 44px; height: 44px; font-size: 17px; }
+  .idName { font-size: 18px; }
+  .idAdm { font-size: 12px; }
   .idStats { grid-template-columns: 1fr 1fr; }
+  .idStat { padding: 14px 10px; gap: 3px; }
   .idStat:nth-child(3) { grid-column: span 2; border-right: none; }
+  .idStatLabel { font-size: 10px; }
+  .idStatValue { font-size: 20px; }
+  .idRemarks { padding: 12px 14px; }
+  .idRemarksLabel { font-size: 9px; margin-bottom: 4px; }
+  .idRemarks blockquote { font-size: 13px; }
+  .section { margin-bottom: 10px; }
+  .sectionHead { padding: 12px 16px 10px; gap: 8px; }
+  .sectionBar { height: 14px; }
+  .sectionTitle { font-size: 10px; }
   .infoGrid { grid-template-columns: 1fr; }
-  .infoCell { border-right: none; }
-  .examGrid { grid-template-columns: 1fr 1fr; }
-  .sig { flex-direction: column; gap: 14px; }
+  .infoCell { border-right: none; border-bottom: 1px solid #e5e7eb; padding: 12px 14px; }
+  .infoCellLabel { font-size: 10px; margin-bottom: 3px; }
+  .infoCellValue { font-size: 13px; }
+  .assignmentBox { margin: 0 14px 12px; padding: 10px 12px; }
+  .assignmentLabel { font-size: 9px; }
+  .assignmentText { font-size: 13px; line-height: 1.6; }
+  .assignmentDue { font-size: 12px; margin-top: 5px; }
+  .prose { font-size: 13px; padding: 12px 14px; line-height: 1.7; }
+  .remarksQuote { font-size: 13px; padding: 12px 14px 12px 16px; line-height: 1.7; }
+  .examGrid { grid-template-columns: 1fr; }
+  .examCell { padding: 12px 14px; }
+  .examCellLabel { font-size: 10px; margin-bottom: 3px; }
+  .examCellValue { font-size: 16px; }
+  .sig { flex-direction: column; gap: 12px; padding: 16px 18px; margin-bottom: 16px; }
+  .sigLabel { font-size: 10px; margin-bottom: 3px; }
+  .sigName { font-size: 16px; }
+  .sigBrand { font-size: 16px; }
   .sigRight { text-align: left; }
+  .printBtn { font-size: 13px; padding: 10px 32px; }
 }
 
 /* ── Print ───────────────────────────────────────── */
