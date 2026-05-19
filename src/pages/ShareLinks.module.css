@@ -17,31 +17,31 @@
   background: rgba(255,255,255,0.1);
   color: rgba(255,255,255,0.75);
   font-family: 'DM Sans', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 3px 10px;
+  padding: 4px 11px;
   border-radius: 100px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   border: 1px solid rgba(255,255,255,0.14);
 }
 
 .bannerTitle {
   font-family: 'Instrument Serif', serif;
-  font-size: clamp(18px, 3vw, 28px);
+  font-size: clamp(20px, 3vw, 32px);
   font-weight: 400;
   letter-spacing: -0.02em;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   color: #fff;
 }
 
 .bannerMeta {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px 14px;
+  gap: 6px 16px;
   font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   opacity: 0.55;
 }
 
@@ -74,24 +74,24 @@
 
 .bulkInfo {
   font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   color: #374151;
 }
 
 .bulkInfo strong {
   font-family: 'Instrument Serif', serif;
   color: #111827;
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 400;
-  margin-right: 3px;
+  margin-right: 4px;
 }
 
 /* ── Link rows ───────────────────────────────────── */
 .linkRow {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 0;
+  gap: 12px;
+  padding: 14px 0;
   border-bottom: 1px solid #f3f4f6;
   flex-wrap: wrap;
 }
@@ -99,38 +99,38 @@
 .linkRow:last-child { border-bottom: none; }
 
 .linkDot {
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   border-radius: 7px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'DM Sans', sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   color: #fff;
   flex-shrink: 0;
 }
 
-.linkStudent { min-width: 110px; }
+.linkStudent { min-width: 120px; }
 
 .linkName {
   font-family: 'DM Sans', sans-serif;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: -0.01em;
 }
 
 .linkAdm {
   font-family: 'DM Sans', sans-serif;
-  font-size: 11px;
+  font-size: 13px;
   color: #9ca3af;
   margin-top: 2px;
 }
 
 .linkChips {
   display: flex;
-  gap: 4px;
+  gap: 5px;
   flex-wrap: wrap;
   flex: 1;
 }
@@ -138,9 +138,9 @@
 .chip {
   background: #f3f4f6;
   border-radius: 4px;
-  padding: 2px 8px;
+  padding: 3px 9px;
   font-family: 'DM Sans', sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   color: #374151;
   border: 1px solid #e5e7eb;
@@ -148,13 +148,13 @@
 
 .linkUrl {
   flex: 2;
-  font-size: 11px;
+  font-size: 13px;
   color: #9ca3af;
   font-family: monospace;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 200px;
+  max-width: 220px;
 }
 
 .linkActions {
@@ -165,15 +165,42 @@
 }
 
 /* ── Responsive ──────────────────────────────────── */
-@media (max-width: 700px) {
-  .banner { padding: 24px 16px; }
-  .container { padding: 24px 16px 60px; }
-  .linkUrl { display: none; }
-  .linkChips { display: none; }
-  .linkRow { gap: 6px; }
+@media (max-width: 1024px) {
+  .linkUrl { max-width: 180px; font-size: 12px; }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  .banner { padding: 28px 16px 24px; }
+  .bannerTag { font-size: 10px; padding: 3px 10px; margin-bottom: 10px; }
+  .bannerTitle { font-size: clamp(18px, 2.5vw, 26px); margin-bottom: 10px; }
+  .bannerMeta { font-size: 13px; gap: 4px 12px; }
+  .container { padding: 24px 16px 60px; }
+  .bulkInfo { font-size: 15px; }
+  .bulkInfo strong { font-size: 22px; }
+  .linkUrl { max-width: 160px; font-size: 12px; }
+  .linkChips { display: none; }
+  .linkRow { gap: 8px; padding: 12px 0; }
+  .linkDot { width: 24px; height: 24px; font-size: 11px; }
+  .linkStudent { min-width: 100px; }
+  .linkName { font-size: 15px; }
+  .linkAdm { font-size: 12px; }
+}
+
+@media (max-width: 600px) {
+  .banner { padding: 20px 12px; }
+  .bannerTag { font-size: 9px; padding: 2px 9px; margin-bottom: 8px; }
+  .bannerTitle { font-size: clamp(16px, 2vw, 22px); margin-bottom: 8px; }
+  .bannerMeta { font-size: 12px; gap: 3px 10px; }
+  .container { padding: 16px 12px 48px; }
+  .bulkInfo { font-size: 14px; }
+  .bulkInfo strong { font-size: 20px; }
+  .linkUrl { display: none; }
+  .linkChips { display: none; }
+  .linkRow { gap: 6px; padding: 10px 0; }
+  .linkDot { width: 22px; height: 22px; font-size: 10px; }
+  .linkStudent { min-width: 80px; }
+  .linkName { font-size: 14px; }
+  .linkAdm { font-size: 11px; }
   .linkActions { width: 100%; justify-content: flex-start; }
-  .bulkRow { flex-direction: column; align-items: flex-start; }
+  .bulkRow { flex-direction: column; align-items: flex-start; gap: 10px; }
 }
