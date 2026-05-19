@@ -27,6 +27,12 @@ const fmtDate = (d) => {
   return dt.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' })
 }
 
+// Stable link: uses student ID — never changes for a specific student
+const getStudentLink = (student) => {
+  const base = window.location.origin + window.location.pathname.split('#')[0]
+  return `${base}#/dojo/${student.id}`
+}
+
 const CURRICULUM_TYPES = ['CBC', 'International (IGCSE/IB)', 'Local 8-4-4', 'American', 'Other']
 const EXAM_TYPES = ['School Exam', 'Online Test', 'Home Assignment Test', 'Center Exam', 'Mock Exam', 'CAT', 'Other']
 
@@ -64,6 +70,24 @@ function ExamMini({ label, val, bold, color: col }) {
   )
 }
 
+function LcRow({ label, val }) {
+  return (
+    <div className="dojo-lc-field">
+      <span className="dojo-lc-field-label">{label}</span>
+      <span className="dojo-lc-field-val">{val}</span>
+    </div>
+  )
+}
+
+function LiRow({ label, val }) {
+  return (
+    <div className="dojo-li-field">
+      <span className="dojo-li-field-label">{label}</span>
+      <span className="dojo-li-field-val">{val}</span>
+    </div>
+  )
+}
+
 // ─── PARENT / PUBLIC VIEW ─────────────────────────────────────────────────────
 function ParentView({ studentId }) {
   const students = load(STUDENTS_KEY)
@@ -89,9 +113,6 @@ function ParentView({ studentId }) {
       <div className="dojo-parent-header" style={{ background: color.bg }}>
         <div className="dojo-parent-header-inner">
           <div className="dojo-parent-brand">Tutors Hub</div>
-          <div className="dojo-parent-avatar" style={{ background: color.accent, color: '#fff' }}>
-            {student.name.charAt(0).toUpperCase()}
-          </div>
           <div className="dojo-parent-name">{student.name}</div>
           {student.grade && (
             <div className="dojo-parent-grade" style={{ background: 'rgba(255,255,255,.15)', border: '1px solid rgba(255,255,255,.25)' }}>
@@ -129,14 +150,13 @@ function ParentView({ studentId }) {
               )}
             </div>
 
-            <LcRow label="Subject" val={l.subject} />
-            <LcRow label="Topic" val={l.topic} />
-            {l.subtopic && <LcRow label="Sub-topic" val={l.subtopic} />}
-
-            {l.book     && <LcRow label="Book / Reference" val={l.book} />}
-            {l.page     && <LcRow label="Page(s)"          val={l.page} />}
-            {l.workDone && <LcRow label="Content Taught"   val={l.workDone} />}
-            {l.remarks  && <LcRow label="Tutor's Remarks"  val={l.remarks} />}
+            <LcRow label="Subject"  val={l.subject} />
+            <LcRow label="Topic"    val={l.topic} />
+            {l.subtopic  && <LcRow label="Sub-topic"        val={l.subtopic} />}
+            {l.book      && <LcRow label="Book / Reference" val={l.book} />}
+            {l.page      && <LcRow label="Page(s)"          val={l.page} />}
+            {l.workDone  && <LcRow label="Content Taught"   val={l.workDone} />}
+            {l.remarks   && <LcRow label="Tutor's Remarks"  val={l.remarks} />}
 
             {l.assignment && (
               <div className="dojo-lc-assignment" style={{ background: color.light, borderLeftColor: color.accent }}>
@@ -170,15 +190,6 @@ function ParentView({ studentId }) {
           Print / Save as PDF
         </button>
       </div>
-    </div>
-  )
-}
-
-function LcRow({ label, val }) {
-  return (
-    <div className="dojo-lc-field">
-      <span className="dojo-lc-field-label">{label}</span>
-      <span className="dojo-lc-field-val">{val}</span>
     </div>
   )
 }
@@ -222,25 +233,15 @@ export default function Dojo() {
 
   const showToast = (msg) => { setToast(msg); setTimeout(() => setToast(''), 2500) }
 
-  const getLink = (sid) =>
-    window.location.origin + window.location.pathname.split('#')[0] + '#/dojo/' + sid
-
-  const copyLink = (sid, name) => {
-    try { navigator.clipboard.writeText(getLink(sid)) } catch {}
-    showToast(`Link for ${name} copied!`)
+  const copyLink = (student) => {
+    try { navigator.clipboard.writeText(getStudentLink(student)) } catch {}
+    showToast(`Link for ${student.name} copied!`)
   }
 
   const whatsapp = (student) => {
-    const url = getLink(student.id)
+    const url = getStudentLink(student)
     const msg = encodeURIComponent(`Hi! Here is ${student.name}'s learning history on Tutors Hub:\n${url}`)
     window.open(`https://wa.me/?text=${msg}`, '_blank')
-  }
-
-  const openParentView = (sid) => {
-    const base = window.location.pathname.split('#')[0]
-    const url  = `${window.location.origin}${base}#/dojo/${sid}`
-    const win  = window.open(url, '_blank')
-    if (win) win.focus()
   }
 
   const handleCreateStudent = () => {
@@ -341,9 +342,6 @@ export default function Dojo() {
         <div className="dojo-form-page">
 
           <div className="dojo-lesson-form-head" style={{ borderLeft: `4px solid ${color.bg}` }}>
-            <div className="dojo-lesson-form-avatar" style={{ background: color.bg, color: '#fff' }}>
-              {selectedStudent?.name.charAt(0).toUpperCase()}
-            </div>
             <div>
               <div className="dojo-lesson-form-tag" style={{ color: color.bg }}>{editLesson ? 'Edit Lesson' : 'New Lesson'}</div>
               <div className="dojo-lesson-form-student" style={{ color: color.bg }}>{selectedStudent?.name}</div>
@@ -369,9 +367,6 @@ export default function Dojo() {
               <Field label="Subject" req>
                 <input className="dojo-field-input" value={lf.subject} onChange={e => setL('subject', e.target.value)} placeholder="e.g. Mathematics" />
               </Field>
-              <Field label="Page(s)">
-                <input className="dojo-field-input" value={lf.page} onChange={e => setL('page', e.target.value)} placeholder="e.g. Pg 34–38" />
-              </Field>
             </div>
           </div>
 
@@ -386,6 +381,9 @@ export default function Dojo() {
               </Field>
               <Field label="Book / Reference Material" span="1 / -1">
                 <input className="dojo-field-input" value={lf.book} onChange={e => setL('book', e.target.value)} placeholder="e.g. Oxford Maths Book 4" />
+              </Field>
+              <Field label="Page(s)">
+                <input className="dojo-field-input" value={lf.page} onChange={e => setL('page', e.target.value)} placeholder="e.g. Pg 34–38" />
               </Field>
             </div>
             <div style={{ marginTop: 14 }}>
@@ -463,9 +461,6 @@ export default function Dojo() {
         <Header right={<Btn variant="outline" size="sm" onClick={() => setView('list')}>Back</Btn>} />
         <div className="dojo-detail-banner" style={{ background: color.bg }}>
           <div className="dojo-detail-banner-left">
-            <div className="dojo-detail-avatar" style={{ background: color.accent, color: color.bg }}>
-              {selectedStudent?.name.charAt(0).toUpperCase()}
-            </div>
             <div>
               <div className="dojo-detail-name">{selectedStudent?.name}</div>
               {selectedStudent?.grade && <div className="dojo-detail-grade">{selectedStudent?.curriculum ? `${selectedStudent.curriculum} · ` : ''}{selectedStudent.grade}</div>}
@@ -474,9 +469,8 @@ export default function Dojo() {
           </div>
           <div className="dojo-detail-actions">
             <Btn size="sm" onClick={() => openAdd(selectedStudent)}>+ New Lesson</Btn>
-            <Btn size="sm" variant="outline" onClick={() => copyLink(selectedStudent?.id, selectedStudent?.name)}>Copy Link</Btn>
+            <Btn size="sm" variant="outline" onClick={() => copyLink(selectedStudent)}>Copy Link</Btn>
             <Btn size="sm" variant="outline" onClick={() => whatsapp(selectedStudent)}>WhatsApp</Btn>
-            <Btn size="sm" variant="outline" onClick={() => openParentView(selectedStudent?.id)}>View Public</Btn>
             <Btn size="sm" variant="outline" onClick={() => deleteStudent(selectedStudent?.id)}>Delete</Btn>
           </div>
           <div className="dojo-detail-accent" style={{ background: color.accent }} />
@@ -494,7 +488,7 @@ export default function Dojo() {
                 <div className="dojo-li-header">
                   <div>
                     <div className="dojo-li-date">{fmtDate(l.date)}</div>
-                    {l.time && <div className="dojo-li-tutor">Time: {l.time}</div>}
+                    {l.time  && <div className="dojo-li-tutor">Time: {l.time}</div>}
                     {l.tutor && <div className="dojo-li-tutor">Tutor: {l.tutor}</div>}
                   </div>
                   <div className="dojo-li-actions">
@@ -503,13 +497,13 @@ export default function Dojo() {
                   </div>
                 </div>
 
-                <LiRow label="Subject" val={l.subject} />
-                <LiRow label="Topic" val={l.topic} />
-                {l.subtopic && <LiRow label="Sub-topic" val={l.subtopic} />}
-                {l.book && <LiRow label="Book" val={l.book} />}
-                {l.page && <LiRow label="Pages" val={l.page} />}
-                {l.workDone && <LiRow label="Content Taught" val={l.workDone} />}
-                {l.remarks && <LiRow label="Remarks" val={l.remarks} />}
+                <LiRow label="Subject"  val={l.subject} />
+                <LiRow label="Topic"    val={l.topic} />
+                {l.subtopic  && <LiRow label="Sub-topic"      val={l.subtopic} />}
+                {l.book      && <LiRow label="Book"           val={l.book} />}
+                {l.page      && <LiRow label="Pages"          val={l.page} />}
+                {l.workDone  && <LiRow label="Content Taught" val={l.workDone} />}
+                {l.remarks   && <LiRow label="Remarks"        val={l.remarks} />}
 
                 {l.assignment && (
                   <div className="dojo-li-assignment" style={{ background: color.light, borderLeft: `4px solid ${color.accent}` }}>
@@ -523,10 +517,10 @@ export default function Dojo() {
                   <div className="dojo-li-exam" style={{ background: color.light, borderLeft: `4px solid ${color.accent}` }}>
                     <div className="dojo-li-exam-title" style={{ color: color.bg }}>Exam</div>
                     <div className="dojo-li-exam-grid">
-                      {l.examType && <ExamMini label="Type" val={l.examType} />}
-                      {l.examDateSet && <ExamMini label="Date Set" val={fmtDate(l.examDateSet)} />}
-                      {l.examScore && <ExamMini label="Score" val={l.examScore} bold color={color.bg} />}
-                      {l.examGrade && <ExamMini label="Grade" val={l.examGrade} bold color={color.bg} />}
+                      {l.examType    && <ExamMini label="Type"     val={l.examType} />}
+                      {l.examDateSet && <ExamMini label="Date Set"  val={fmtDate(l.examDateSet)} />}
+                      {l.examScore   && <ExamMini label="Score"    val={l.examScore} bold color={color.bg} />}
+                      {l.examGrade   && <ExamMini label="Grade"    val={l.examGrade} bold color={color.bg} />}
                     </div>
                   </div>
                 )}
@@ -545,7 +539,7 @@ export default function Dojo() {
       <Header right={<Btn onClick={() => setView('create-student')}>+ New Student</Btn>} />
       <div className="dojo-list-wrap">
         <div className="dojo-list-head">
-          <h1 className="dojo-list-title">Tutors Hub</h1>
+          <h1 className="dojo-list-title">Students</h1>
           <p className="dojo-list-sub">Manage your students and track their progress.</p>
         </div>
 
@@ -567,9 +561,6 @@ export default function Dojo() {
                   onClick={() => { setSelectedStudent(s); setView('student-detail') }}
                   style={{ borderLeftColor: color.bg }}
                 >
-                  <div className="dojo-student-avatar" style={{ background: color.bg, color: '#fff' }}>
-                    {s.name.charAt(0).toUpperCase()}
-                  </div>
                   <div className="dojo-student-info">
                     <div className="dojo-student-name">{s.name}</div>
                     <div className="dojo-student-meta">
@@ -585,15 +576,6 @@ export default function Dojo() {
         )}
       </div>
       <Toast message={toast} />
-    </div>
-  )
-}
-
-function LiRow({ label, val }) {
-  return (
-    <div className="dojo-li-field">
-      <span className="dojo-li-field-label">{label}</span>
-      <span className="dojo-li-field-val">{val}</span>
     </div>
   )
 }
